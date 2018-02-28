@@ -1,7 +1,7 @@
 {
-    "version": "3.0.0",
-    "summary": "view helpers enforcing accessible practices",
-    "repository": "https://github.com/tesk9/accessible-html.git",
+    "version": "1.0.0",
+    "summary": "Drop-in replacement for tesk9/accessible-html using Html.Styled",
+    "repository": "https://github.com/tesk9/accessible-html-with-css.git",
     "license": "BSD3",
     "source-directories": [
         "src"
@@ -18,7 +18,8 @@
     ],
     "dependencies": {
         "elm-lang/core": "5.1.1 <= v < 6.0.0",
-        "elm-lang/html": "2.0.0 <= v < 3.0.0"
+        "elm-lang/html": "2.0.0 <= v < 3.0.0",
+        "rtfeldman/elm-css": "13.0.0 <= v < 14.0.0"
     },
     "elm-version": "0.18.0 <= v <= 0.18.0"
 }
