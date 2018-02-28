@@ -139,7 +139,7 @@ Together, `tabList`, `tab`, and `tabPanel` describe the pieces of a tab componen
 
     import Accessibility exposing (Html, tab, tabList, tabPanel, text)
     import Accessibility.Widget exposing (controls, hidden, labelledBy, selected)
-    import Html.Attributes exposing (id)
+    import Html.Styled.Attributes exposing (id)
 
     view : Html msg
     view =
@@ -161,14 +161,14 @@ Together, `tabList`, `tab`, and `tabPanel` describe the pieces of a tab componen
                 [ id "panel-1"
                 , labelledBy "tab-1"
                 , hidden False
-                , Html.Attributes.hidden False
+                , Html.Styled.Attributes.hidden False
                 ]
                 [ text "Panel One Content" ]
             , tabPanel
                 [ id "panel-2"
                 , labelledBy "tab-2"
                 , hidden True
-                , Html.Attributes.hidden True
+                , Html.Styled.Attributes.hidden True
                 ]
                 [ text "Panel Two Content" ]
             ]
@@ -186,7 +186,7 @@ screenreaders. Essentailly, does it convey meaning and value, or is it decorativ
 Remember, **redundant** information can be confusing too.
 
     import Accessibility as Html exposing (..)
-    import Html.Attributes exposing (src)
+    import Html.Styled.Attributes exposing (src)
 
     view : Html msg
     view =
@@ -246,8 +246,8 @@ import Accessibility.Role as Role
 import Accessibility.Style as Style
 import Accessibility.Utils exposing (nonInteractive)
 import Accessibility.Widget as Widget
-import Html
-import Html.Attributes
+import Html.Styled as Html
+import Html.Styled.Attributes
 
 
 {-| All inputs must be associated with a `<label>` tag. Here is an example
@@ -326,7 +326,7 @@ Now if you said `firstNameInput "Tom"` you would get HTML like this:
 labelHidden : String -> List (Attribute Never) -> Html Never -> Html msg -> Html msg
 labelHidden id attributes labelContent input =
     span []
-        [ label (Html.Attributes.for id :: Style.invisible :: attributes)
+        [ label (Html.Styled.Attributes.for id :: Style.invisible :: attributes)
             [ Html.map Basics.never labelContent ]
         , input
         ]
@@ -351,8 +351,8 @@ helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 inputText : String -> List (Attribute msg) -> Html msg
 inputText value_ attributes =
     Html.input
-        ([ Html.Attributes.type_ "text"
-         , Html.Attributes.value value_
+        ([ Html.Styled.Attributes.type_ "text"
+         , Html.Styled.Attributes.value value_
          ]
             ++ attributes
         )
@@ -373,10 +373,10 @@ helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 radio : String -> String -> Bool -> List (Attribute msg) -> Html msg
 radio name_ value_ checked_ attributes =
     Html.input
-        ([ Html.Attributes.type_ "radio"
-         , Html.Attributes.name name_
-         , Html.Attributes.value value_
-         , Html.Attributes.checked checked_
+        ([ Html.Styled.Attributes.type_ "radio"
+         , Html.Styled.Attributes.name name_
+         , Html.Styled.Attributes.value value_
+         , Html.Styled.Attributes.checked checked_
          ]
             ++ attributes
         )
@@ -399,9 +399,9 @@ checkbox : String -> Maybe Bool -> List (Attribute msg) -> Html msg
 checkbox value_ maybeChecked attributes =
     Html.input
         (nonInteractive
-            [ Html.Attributes.type_ "checkbox"
-            , Html.Attributes.value value_
-            , Maybe.withDefault Widget.indeterminate (Maybe.map Html.Attributes.checked maybeChecked)
+            [ Html.Styled.Attributes.type_ "checkbox"
+            , Html.Styled.Attributes.value value_
+            , Maybe.withDefault Widget.indeterminate (Maybe.map Html.Styled.Attributes.checked maybeChecked)
             ]
             ++ attributes
         )
@@ -451,7 +451,7 @@ For graphs and diagrams, see `figure` and `longDesc`.
 -}
 img : String -> List (Attribute Never) -> Html msg
 img alt_ attributes =
-    Html.img (Html.Attributes.alt alt_ :: nonInteractive attributes) []
+    Html.img (Html.Styled.Attributes.alt alt_ :: nonInteractive attributes) []
 
 
 {-| Use this tag when the image is decorative or provides redundant information. Read through [the w3 decorative image tutorial](https://www.w3.org/WAI/tutorials/images/decorative/) to learn more.
@@ -461,7 +461,7 @@ img alt_ attributes =
 -}
 decorativeImg : List (Attribute Never) -> Html msg
 decorativeImg attributes =
-    Html.img (Html.Attributes.alt "" :: nonInteractive (Role.presentation :: attributes)) []
+    Html.img (Html.Styled.Attributes.alt "" :: nonInteractive (Role.presentation :: attributes)) []
 
 
 {-| Adds the group role to a figure.

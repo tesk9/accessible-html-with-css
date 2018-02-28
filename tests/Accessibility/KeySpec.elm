@@ -1,7 +1,7 @@
 module Accessibility.KeySpec exposing (spec)
 
 import Accessibility.Key exposing (..)
-import Html exposing (..)
+import Html.Styled exposing (..)
 import Json.Encode as Encode
 import SpecHelpers exposing (expectAttribute)
 import Test exposing (..)
@@ -45,6 +45,7 @@ expectEvent name keyState msg =
     test (name ++ " produces " ++ toString msg) <|
         \() ->
             view
+                |> toUnstyled
                 |> Query.fromHtml
                 |> Event.simulate (keydown keyState)
                 |> Event.expect msg

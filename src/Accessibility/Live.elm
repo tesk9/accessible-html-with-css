@@ -27,7 +27,7 @@ Learn more about how to use live regions [here](https://www.w3.org/TR/wai-aria-p
 -}
 
 import Accessibility.Utils exposing (..)
-import Html
+import Html.Styled as Html
 
 
 {-| Supported for all elements.

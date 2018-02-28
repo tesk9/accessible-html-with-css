@@ -129,8 +129,8 @@ module Accessibility.Role
 -}
 
 import Accessibility.Utils exposing (Role(..), role)
-import Html
-import Html.Attributes
+import Html.Styled as Html
+import Html.Styled.Attributes
 
 
 {-| Set the role of a given element to be a given string.
@@ -140,7 +140,7 @@ import Html.Attributes
 -}
 custom : String -> Html.Attribute msg
 custom =
-    Html.Attributes.attribute "role"
+    Html.Styled.Attributes.attribute "role"
 
 
 {-| Add `role="alert"` to the attributes of an element.

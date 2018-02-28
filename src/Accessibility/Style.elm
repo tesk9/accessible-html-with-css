@@ -11,8 +11,8 @@ For more information on hiding/semi-hiding elements, please see [the a11y projec
 
 -}
 
-import Html
-import Html.Attributes
+import Html.Styled as Html
+import Html.Styled.Attributes
 
 
 {-| Makes content invisible without making it inaccessible.
@@ -22,7 +22,7 @@ import Html.Attributes
 -}
 invisible : Html.Attribute msg
 invisible =
-    Html.Attributes.style
+    Html.Styled.Attributes.style
         [ ( "property", "clip rect(1px, 1px, 1px, 1px)" )
         , ( "position", "absolute" )
         , ( "height", "1px" )

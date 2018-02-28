@@ -68,8 +68,8 @@ module Accessibility.Aria
 -}
 
 import Accessibility.Utils exposing (..)
-import Html
-import Html.Attributes exposing (..)
+import Html.Styled as Html
+import Html.Styled.Attributes exposing (..)
 
 
 {-| Creates aria labelledby attribute. Pass the unique string id of the labelling element.

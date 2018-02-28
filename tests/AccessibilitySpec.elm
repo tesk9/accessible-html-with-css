@@ -2,7 +2,9 @@ module AccessibilitySpec exposing (htmlSpec, imageSpec, inputSpec)
 
 import Accessibility exposing (..)
 import Html.Attributes as Attribute
-import Html.Events exposing (onClick)
+import Html.Styled exposing (toUnstyled)
+import Html.Styled.Attributes
+import Html.Styled.Events exposing (onClick)
 import Test exposing (..)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
@@ -65,7 +67,7 @@ inputSpec =
                     labelHidden "id"
                         []
                         (text "the label")
-                        (radio "group_name" "the value" True [ Attribute.id "id" ])
+                        (radio "group_name" "the value" True [ Html.Styled.Attributes.id "id" ])
                 ]
             ]
         , describe "checkbox inputs" <|
@@ -93,7 +95,7 @@ inputSpec =
                     labelHidden "id"
                         []
                         (text "the label")
-                        (checkbox "the value" (Just True) [ Attribute.id "id" ])
+                        (checkbox "the value" (Just True) [ Html.Styled.Attributes.id "id" ])
                 ]
             ]
         ]
@@ -104,6 +106,7 @@ baseInputTests { label, value, type_ } view =
     let
         queryView =
             div [] [ figure [] [ view ] ]
+                |> toUnstyled
                 |> Query.fromHtml
     in
     describe "Basic input tests"
@@ -130,6 +133,7 @@ imageSpec =
     let
         queryView view =
             div [] [ Accessibility.figure [] [ view ] ]
+                |> toUnstyled
                 |> Query.fromHtml
                 |> Query.find [ Selector.tag "img" ]
     in
@@ -158,6 +162,7 @@ htmlSpec =
     let
         expectClickableChild element =
             div [] [ element [] [ button [ onClick DoAThing ] [] ] ]
+                |> toUnstyled
                 |> Query.fromHtml
                 |> Query.find [ Selector.tag "button" ]
                 |> Event.simulate Event.click

@@ -47,9 +47,9 @@ module Accessibility.Key
 
 -}
 
-import Html exposing (Attribute)
-import Html.Attributes
-import Html.Events exposing (keyCode, on)
+import Html.Styled as Html exposing (Attribute)
+import Html.Styled.Attributes
+import Html.Styled.Events exposing (keyCode, on)
 import Json.Decode as Json
 
 
@@ -58,7 +58,7 @@ import Json.Decode as Json
 `tabbable True` will set the tabindex to 0, and `tabbable False` will set the
 tabindex to -1.
 
-You may use Html.Attributes.tabindex if you need to control the tab order more
+You may use Html.Styled.Attributes.tabindex if you need to control the tab order more
 explicitly, but you may want to restructure your HTML to match how you want
 users to interact with it instead.
 
@@ -66,9 +66,9 @@ users to interact with it instead.
 tabbable : Bool -> Attribute msg
 tabbable isTabbable =
     if isTabbable then
-        Html.Attributes.tabindex 0
+        Html.Styled.Attributes.tabindex 0
     else
-        Html.Attributes.tabindex -1
+        Html.Styled.Attributes.tabindex -1
 
 
 {-| Pass a list of decoders.

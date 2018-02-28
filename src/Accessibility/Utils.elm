@@ -1,7 +1,7 @@
 module Accessibility.Utils exposing (..)
 
-import Html
-import Html.Attributes exposing (..)
+import Html.Styled as Html
+import Html.Styled.Attributes exposing (..)
 
 
 -- ARIA
@@ -37,7 +37,7 @@ toListString =
 
 nonInteractive : List (Html.Attribute Never) -> List (Html.Attribute a)
 nonInteractive =
-    List.map (Html.Attributes.map Basics.never)
+    List.map (Html.Styled.Attributes.map Basics.never)
 
 
 

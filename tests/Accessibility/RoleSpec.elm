@@ -3,6 +3,7 @@ module Accessibility.RoleSpec exposing (spec)
 import Accessibility as Html
 import Accessibility.Role exposing (..)
 import Html.Attributes
+import Html.Styled exposing (toUnstyled)
 import Json.Encode
 import Test exposing (..)
 import Test.Html.Query as Query
@@ -73,6 +74,7 @@ addsRole role_ expected =
     test ("sets the role attribute: " ++ toString role_) <|
         \() ->
             Html.div [] [ Html.div [ role_ ] [] ]
+                |> toUnstyled
                 |> Query.fromHtml
                 |> Query.has
                     [ Selector.attribute <|

@@ -1,8 +1,8 @@
 module SpecHelpers exposing (expectAria, expectAriaBoolAttribute, expectAriaTristateAttribute, expectAttribute)
 
 import Expect
-import Html
 import Html.Attributes
+import Html.Styled as Html exposing (toUnstyled)
 import Json.Encode
 import Test exposing (..)
 import Test.Html.Query as Query
@@ -41,6 +41,7 @@ expectAttribute :
 expectAttribute ( setter, state ) ( attribute, attrState ) =
     \() ->
         Html.div [] [ Html.div [ setter state ] [] ]
+            |> toUnstyled
             |> Query.fromHtml
             |> hasAttribute attribute attrState
 

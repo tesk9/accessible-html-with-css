@@ -31,7 +31,7 @@ are specified [here](https://www.w3.org/TR/wai-aria-practices/examples/landmarks
 -}
 
 import Accessibility.Utils exposing (Role(..), role)
-import Html
+import Html.Styled as Html
 
 
 {-| This banner should have the page title in it. In HTML5, the `header` element

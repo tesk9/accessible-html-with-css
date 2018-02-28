@@ -118,8 +118,8 @@ See [the spec](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup).
 -}
 
 import Accessibility.Utils exposing (aria, toBoolString, toTriStateString)
-import Html
-import Html.Attributes exposing (property)
+import Html.Styled as Html
+import Html.Styled.Attributes exposing (property)
 import Json.Encode
 
 
@@ -310,7 +310,7 @@ interactable.
     import Accessibility.Aria exposing (labelledBy)
     import Accessibility.Role exposing (dialog)
     import Accessibility.Widget exposing (modal)
-    import Html.Attributes exposing (id)
+    import Html.Styled.Attributes exposing (id)
 
     modal : Html msg
     modal =
