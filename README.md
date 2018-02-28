@@ -1,7 +1,11 @@
-# accessible-html
-![](https://travis-ci.org/tesk9/accessible-html.svg?branch=master)
+# accessible-html-with-css
 
-`tesk9/accessible-html` makes writing accessible websites easier.
+![](https://travis-ci.org/tesk9/accessible-html-with-css.svg?branch=master)
+
+`tesk9/accessible-html-css` makes writing accessible websites easier. It is a
+drop-in replacement for `tesk9/accessible-html` which exposes
+[`Html.Styled`](http://package.elm-lang.org/packages/rtfeldman/elm-css/13.1.1/Html-Styled)
+values instead of `Html` values.
 
 ## Using this Library
 
