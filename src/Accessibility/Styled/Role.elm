@@ -1,4 +1,4 @@
-module Accessibility.Role
+module Accessibility.Styled.Role
     exposing
         ( alert
         , alertDialog
@@ -128,7 +128,7 @@ module Accessibility.Role
 
 -}
 
-import Accessibility.Utils exposing (Role(..), role)
+import Accessibility.Styled.Utils exposing (Role(..), role)
 import Html.Styled as Html
 import Html.Styled.Attributes
 

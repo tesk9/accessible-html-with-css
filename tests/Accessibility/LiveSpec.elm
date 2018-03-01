@@ -1,6 +1,6 @@
 module Accessibility.LiveSpec exposing (spec)
 
-import Accessibility.Live exposing (..)
+import Accessibility.Styled.Live exposing (..)
 import SpecHelpers exposing (..)
 import Test exposing (..)
 

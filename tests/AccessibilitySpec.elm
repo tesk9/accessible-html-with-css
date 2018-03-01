@@ -1,6 +1,6 @@
 module AccessibilitySpec exposing (htmlSpec, imageSpec, inputSpec)
 
-import Accessibility exposing (..)
+import Accessibility.Styled exposing (..)
 import Html.Attributes as Attribute
 import Html.Styled exposing (toUnstyled)
 import Html.Styled.Attributes
@@ -132,7 +132,7 @@ imageSpec : Test
 imageSpec =
     let
         queryView view =
-            div [] [ Accessibility.figure [] [ view ] ]
+            div [] [ Accessibility.Styled.figure [] [ view ] ]
                 |> toUnstyled
                 |> Query.fromHtml
                 |> Query.find [ Selector.tag "img" ]
@@ -141,7 +141,7 @@ imageSpec =
         [ describe "img"
             [ test "has alt text" <|
                 \() ->
-                    queryView (Accessibility.img "Birthday cake" [])
+                    queryView (Accessibility.Styled.img "Birthday cake" [])
                         |> Query.has [ Selector.attribute <| Attribute.alt "Birthday cake" ]
             ]
         , describe "decorativeImg"

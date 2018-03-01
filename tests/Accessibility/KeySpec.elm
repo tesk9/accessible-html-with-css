@@ -1,6 +1,6 @@
 module Accessibility.KeySpec exposing (spec)
 
-import Accessibility.Key exposing (..)
+import Accessibility.Styled.Key exposing (..)
 import Html.Styled exposing (..)
 import Json.Encode as Encode
 import SpecHelpers exposing (expectAttribute)

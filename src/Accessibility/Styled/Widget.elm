@@ -1,4 +1,4 @@
-module Accessibility.Widget
+module Accessibility.Styled.Widget
     exposing
         ( autoCompleteBoth
         , autoCompleteInline
@@ -117,7 +117,7 @@ See [the spec](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup).
 
 -}
 
-import Accessibility.Utils exposing (aria, toBoolString, toTriStateString)
+import Accessibility.Styled.Utils exposing (aria, toBoolString, toTriStateString)
 import Html.Styled as Html
 import Html.Styled.Attributes exposing (property)
 import Json.Encode
@@ -306,10 +306,10 @@ level =
 {-| Indicate that a modal is showing and the rest of the page contents are not
 interactable.
 
-    import Accessibility exposing (div, h2, p, text)
-    import Accessibility.Aria exposing (labelledBy)
-    import Accessibility.Role exposing (dialog)
-    import Accessibility.Widget exposing (modal)
+    import Accessibility.Styled exposing (div, h2, p, text)
+    import Accessibility.Styled.Aria exposing (labelledBy)
+    import Accessibility.Styled.Role exposing (dialog)
+    import Accessibility.Styled.Widget exposing (modal)
     import Html.Styled.Attributes exposing (id)
 
     modal : Html msg

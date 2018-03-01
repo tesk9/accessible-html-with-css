@@ -1,4 +1,4 @@
-module Accessibility.Landmark
+module Accessibility.Styled.Landmark
     exposing
         ( application
         , banner
@@ -30,7 +30,7 @@ are specified [here](https://www.w3.org/TR/wai-aria-practices/examples/landmarks
 
 -}
 
-import Accessibility.Utils exposing (Role(..), role)
+import Accessibility.Styled.Utils exposing (Role(..), role)
 import Html.Styled as Html
 
 
@@ -38,8 +38,8 @@ import Html.Styled as Html
 generally is implicitly a `banner`. (For specifics on what DOM relationships will
 affect this default behavior, please check out [W3](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html).)
 
-    import Accessibility as Html exposing (Html, div, h1, img, text)
-    import Accessibility.Landmark exposing (banner)
+    import Accessibility.Styled as Html exposing (Html, div, h1, img, text)
+    import Accessibility.Styled.Landmark exposing (banner)
     import Html.Attributes exposing (src)
 
     view : Html msg

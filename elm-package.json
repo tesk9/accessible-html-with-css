@@ -7,14 +7,14 @@
         "src"
     ],
     "exposed-modules": [
-        "Accessibility",
-        "Accessibility.Aria",
-        "Accessibility.Landmark",
-        "Accessibility.Live",
-        "Accessibility.Key",
-        "Accessibility.Role",
-        "Accessibility.Style",
-        "Accessibility.Widget"
+        "Accessibility.Styled",
+        "Accessibility.Styled.Aria",
+        "Accessibility.Styled.Landmark",
+        "Accessibility.Styled.Live",
+        "Accessibility.Styled.Key",
+        "Accessibility.Styled.Role",
+        "Accessibility.Styled.Style",
+        "Accessibility.Styled.Widget"
     ],
     "dependencies": {
         "elm-lang/core": "5.1.1 <= v < 6.0.0",

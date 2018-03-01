@@ -1,4 +1,4 @@
-module Accessibility.Key
+module Accessibility.Styled.Key
     exposing
         ( down
         , enter

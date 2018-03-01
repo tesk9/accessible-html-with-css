@@ -1,7 +1,7 @@
 module Accessibility.LandmarkSpec exposing (spec)
 
-import Accessibility as Html
-import Accessibility.Landmark exposing (..)
+import Accessibility.Styled as Html
+import Accessibility.Styled.Landmark exposing (..)
 import Html.Attributes
 import Html.Styled exposing (toUnstyled)
 import Json.Encode

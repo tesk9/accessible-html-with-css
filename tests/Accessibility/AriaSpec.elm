@@ -1,6 +1,6 @@
 module Accessibility.AriaSpec exposing (spec)
 
-import Accessibility.Aria exposing (..)
+import Accessibility.Styled.Aria exposing (..)
 import SpecHelpers exposing (..)
 import Test exposing (..)
 

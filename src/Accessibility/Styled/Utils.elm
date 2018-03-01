@@ -1,4 +1,4 @@
-module Accessibility.Utils exposing (..)
+module Accessibility.Styled.Utils exposing (..)
 
 import Html.Styled as Html
 import Html.Styled.Attributes exposing (..)

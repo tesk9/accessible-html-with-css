@@ -1,6 +1,6 @@
 module Accessibility.WidgetSpec exposing (spec)
 
-import Accessibility.Widget exposing (..)
+import Accessibility.Styled.Widget exposing (..)
 import SpecHelpers exposing (..)
 import Test exposing (..)
 

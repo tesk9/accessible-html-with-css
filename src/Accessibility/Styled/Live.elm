@@ -1,4 +1,4 @@
-module Accessibility.Live
+module Accessibility.Styled.Live
     exposing
         ( atomic
         , busy
@@ -26,7 +26,7 @@ Learn more about how to use live regions [here](https://www.w3.org/TR/wai-aria-p
 
 -}
 
-import Accessibility.Utils exposing (..)
+import Accessibility.Styled.Utils exposing (..)
 import Html.Styled as Html
 
 

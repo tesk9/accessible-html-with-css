@@ -1,7 +1,7 @@
 module Accessibility.RoleSpec exposing (spec)
 
-import Accessibility as Html
-import Accessibility.Role exposing (..)
+import Accessibility.Styled as Html
+import Accessibility.Styled.Role exposing (..)
 import Html.Attributes
 import Html.Styled exposing (toUnstyled)
 import Json.Encode

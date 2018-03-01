@@ -1,4 +1,4 @@
-module Accessibility.Style exposing (invisible)
+module Accessibility.Styled.Style exposing (invisible)
 
 {-|
 

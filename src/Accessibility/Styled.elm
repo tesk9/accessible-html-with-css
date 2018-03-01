@@ -1,4 +1,4 @@
-module Accessibility
+module Accessibility.Styled
     exposing
         ( Attribute
         , Html
@@ -137,8 +137,8 @@ more options.
 
 Together, `tabList`, `tab`, and `tabPanel` describe the pieces of a tab component view.
 
-    import Accessibility exposing (Html, tab, tabList, tabPanel, text)
-    import Accessibility.Widget exposing (controls, hidden, labelledBy, selected)
+    import Accessibility.Styled exposing (Html, tab, tabList, tabPanel, text)
+    import Accessibility.Styled.Widget exposing (controls, hidden, labelledBy, selected)
     import Html.Styled.Attributes exposing (id)
 
     view : Html msg
@@ -241,11 +241,11 @@ These are here to make the following nicer:
 
 -}
 
-import Accessibility.Key as Key
-import Accessibility.Role as Role
-import Accessibility.Style as Style
-import Accessibility.Utils exposing (nonInteractive)
-import Accessibility.Widget as Widget
+import Accessibility.Styled.Key as Key
+import Accessibility.Styled.Role as Role
+import Accessibility.Styled.Style as Style
+import Accessibility.Styled.Utils exposing (nonInteractive)
+import Accessibility.Styled.Widget as Widget
 import Html.Styled as Html
 import Html.Styled.Attributes
 
@@ -549,7 +549,7 @@ program =
 If you haven't used this to set up an Elm app before, please check out the documentation
 and links provided in the [html package](http://package.elm-lang.org/packages/elm-lang/html/latest/Html).
 
-    import Accessibility as Html
+    import Accessibility.Styled as Html
 
     main =
         Html.programWithFlags

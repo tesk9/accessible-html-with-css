@@ -1,4 +1,4 @@
-module Accessibility.Aria
+module Accessibility.Styled.Aria
     exposing
         ( activeDescendant
         , colCount
@@ -67,7 +67,7 @@ module Accessibility.Aria
 
 -}
 
-import Accessibility.Utils exposing (..)
+import Accessibility.Styled.Utils exposing (..)
 import Html.Styled as Html
 import Html.Styled.Attributes exposing (..)
 
