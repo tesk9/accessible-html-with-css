@@ -1,7 +1,8 @@
-module Accessibility.Styled.Utils exposing (..)
+module Accessibility.Styled.Utils exposing (Role(..), aria, nonInteractive, role, roleToString, toBoolString, toListString, toTriStateString)
 
 import Html.Styled as Html
 import Html.Styled.Attributes exposing (..)
+
 
 
 -- ARIA
@@ -17,8 +18,12 @@ aria =
 
 
 toBoolString : Bool -> String
-toBoolString =
-    String.toLower << toString
+toBoolString bool =
+    if bool then
+        "true"
+
+    else
+        "false"
 
 
 toTriStateString : Maybe Bool -> String
@@ -121,8 +126,8 @@ type Role
 
 
 roleToString : Role -> String
-roleToString role =
-    case role of
+roleToString role_ =
+    case role_ of
         Alert ->
             "alert"
 

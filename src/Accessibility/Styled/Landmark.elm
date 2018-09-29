@@ -1,15 +1,4 @@
-module Accessibility.Styled.Landmark
-    exposing
-        ( application
-        , banner
-        , complementary
-        , contentInfo
-        , form
-        , main_
-        , navigation
-        , region
-        , search
-        )
+module Accessibility.Styled.Landmark exposing (banner, complementary, contentInfo, form, main_, navigation, search, application, region)
 
 {-| [On page regions.](https://www.w3.org/TR/WCAG20-TECHS/ARIA11.html)
 
@@ -38,8 +27,8 @@ import Html.Styled as Html
 generally is implicitly a `banner`. (For specifics on what DOM relationships will
 affect this default behavior, please check out [W3](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/banner.html).)
 
-    import Accessibility.Styled as Html exposing (Html, div, h1, img, text)
-    import Accessibility.Styled.Landmark exposing (banner)
+    import Accessibility as Html exposing (Html, div, h1, img, text)
+    import Accessibility.Landmark exposing (banner)
     import Html.Attributes exposing (src)
 
     view : Html msg

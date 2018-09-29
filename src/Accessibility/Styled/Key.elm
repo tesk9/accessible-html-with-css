@@ -1,17 +1,11 @@
-module Accessibility.Styled.Key
-    exposing
-        ( down
-        , enter
-        , escape
-        , left
-        , onKeyDown
-        , right
-        , space
-        , tab
-        , tabBack
-        , tabbable
-        , up
-        )
+module Accessibility.Styled.Key exposing
+    ( tabbable
+    , onKeyDown
+    , tab, tabBack
+    , up, right, down, left
+    , enter, space
+    , escape
+    )
 
 {-|
 
@@ -67,6 +61,7 @@ tabbable : Bool -> Attribute msg
 tabbable isTabbable =
     if isTabbable then
         Html.Styled.Attributes.tabindex 0
+
     else
         Html.Styled.Attributes.tabindex -1
 
@@ -200,8 +195,9 @@ forKeyCode : Int -> msg -> Int -> Json.Decoder msg
 forKeyCode key msg keyCode =
     if keyCode == key then
         Json.succeed msg
+
     else
-        Json.fail (toString keyCode)
+        Json.fail (String.fromInt keyCode)
 
 
 
@@ -222,6 +218,7 @@ forModifier : Int -> a -> (Bool -> Bool) -> Bool -> Json.Decoder a
 forModifier key msg withModifierPressed modifierKey =
     if withModifierPressed modifierKey then
         succeedForKeyCode key msg
+
     else
         Json.fail "False"
 
