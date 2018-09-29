@@ -17,18 +17,17 @@ import Html.Styled.Attributes
 
 {-| Makes content invisible without making it inaccessible.
 
-    label [ invisible ] [ text "Screen readers can still read me!" ]
+    label invisible [ text "Screen readers can still read me!" ]
 
 -}
-invisible : Html.Attribute msg
+invisible : List (Html.Attribute msg)
 invisible =
-    Html.Styled.Attributes.style
-        [ ( "property", "clip rect(1px, 1px, 1px, 1px)" )
-        , ( "position", "absolute" )
-        , ( "height", "1px" )
-        , ( "width", "1px" )
-        , ( "overflow", "hidden" )
-        , ( "margin", "-1px" )
-        , ( "padding", "0" )
-        , ( "border", "0" )
-        ]
+    [ Html.Styled.Attributes.style "property" "clip rect(1px, 1px, 1px, 1px)"
+    , Html.Styled.Attributes.style "position" "absolute"
+    , Html.Styled.Attributes.style "height" "1px"
+    , Html.Styled.Attributes.style "width" "1px"
+    , Html.Styled.Attributes.style "overflow" "hidden"
+    , Html.Styled.Attributes.style "margin" "-1px"
+    , Html.Styled.Attributes.style "padding" "0"
+    , Html.Styled.Attributes.style "border" "0"
+    ]
