@@ -2,6 +2,8 @@
 
 `tesk9/accessible-html-with-css` makes writing accessible websites easier.
 
+This library is intended to be used along with [`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/). If you're not using elm-css, you probably want [`accessible-html`](https://package.elm-lang.org/packages/tesk9/accessible-html/latest/) instead.
+
 ## Warning!
 
 This library was upgraded to Elm 0.19 without its tests :scream_cat:. Upgrading the tests is blocked on adding the Elm HTML query testing library into the elm testing library. Issued [here](https://github.com/elm-explorations/test/issues/13). Tests & Travis build icon will be added once it's possible to add them.
