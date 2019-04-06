@@ -21,7 +21,7 @@ module Accessibility.Styled exposing
     , small, cite, dfn, abbr, time, var, samp, kbd, s, q
     , mark, ruby, rt, rp, bdi, bdo, wbr
     , details, summary, menuitem, menu
-    , Html, Attribute, map
+    , Html, Attribute, map, fromUnstyled, toUnstyled
     )
 
 {-|
@@ -145,7 +145,7 @@ These are here to make the following nicer:
 
     import Accessibility.Styled as Html exposing (..)
 
-@docs Html, Attribute, map
+@docs Html, Attribute, map, fromUnstyled, toUnstyled
 
 -}
 
@@ -154,6 +154,7 @@ import Accessibility.Styled.Role as Role
 import Accessibility.Styled.Style as Style
 import Accessibility.Styled.Utils exposing (nonInteractive)
 import Accessibility.Styled.Widget as Widget
+import Html as RootHtml
 import Html.Styled as Html
 import Html.Styled.Attributes
 
@@ -1161,3 +1162,15 @@ an event listener, use the elm/html library instead.
 menu : List (Attribute Never) -> List (Html msg) -> Html msg
 menu attributes =
     Html.menu (nonInteractive attributes)
+
+
+{-| -}
+fromUnstyled : RootHtml.Html msg -> Html msg
+fromUnstyled =
+    Html.fromUnstyled
+
+
+{-| -}
+toUnstyled : Html msg -> RootHtml.Html msg
+toUnstyled =
+    Html.toUnstyled
