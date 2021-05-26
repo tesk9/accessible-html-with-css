@@ -1,6 +1,6 @@
 module Accessibility.Styled exposing
     ( labelBefore, labelAfter, labelHidden
-    , inputText, radio, checkbox
+    , inputText, inputNumber, radio, checkbox
     , tabList, tab, tabPanel
     , img, decorativeImg
     , button, textarea, select
@@ -38,7 +38,7 @@ Right now, this library only supports a few input types. Many more input types e
 See [MDN's input information](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for
 more options.
 
-@docs inputText, radio, checkbox
+@docs inputText, inputNumber, radio, checkbox
 
 
 ## Tabs
@@ -261,6 +261,31 @@ inputText : String -> List (Attribute msg) -> Html msg
 inputText value_ attributes =
     Html.input
         ([ Html.Styled.Attributes.type_ "text"
+         , Html.Styled.Attributes.value value_
+         ]
+            ++ attributes
+        )
+        []
+
+
+{-| Constructs an input of type "text" but constricting the input to allow only numbers as recommended by gov.uk (See: <https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/>). Use in conjunction with one of the label
+helpers (`labelBefore`, `labelAfter`, `labelHidden`).
+
+    ageInput : String -> Html Msg
+    ageInput age =
+        labelHidden
+            "age-input"
+            [ class "data-entry" ]
+            (text "Age:")
+            (inputNumber age [ onBlur Age ])
+
+-}
+inputNumber : String -> List (Attribute msg) -> Html msg
+inputNumber value_ attributes =
+    Html.input
+        ([ Html.Styled.Attributes.type_ "text"
+         , Html.Styled.Attributes.attribute "inputmode" "numeric"
+         , Html.Styled.Attributes.pattern "[0-9]*"
          , Html.Styled.Attributes.value value_
          ]
             ++ attributes
