@@ -2,7 +2,6 @@ module AccessibilitySpec exposing (htmlSpec, imageSpec, inputSpec)
 
 import Accessibility.Styled exposing (..)
 import Html.Attributes as Attribute
-import Html.Styled exposing (toUnstyled)
 import Html.Styled.Attributes
 import Html.Styled.Events exposing (onClick)
 import Test exposing (..)
