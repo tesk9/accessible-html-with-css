@@ -21,7 +21,7 @@ module Accessibility.Styled exposing
     , small, cite, dfn, abbr, time, var, samp, kbd, s, q
     , mark, ruby, rt, rp, bdi, bdo, wbr
     , details, summary, menuitem, menu
-    , Html, Attribute, map, fromUnstyled, toUnstyled
+    , Html, Attribute, map, fromUnstyled, toUnstyled, styled
     )
 
 {-|
@@ -145,7 +145,7 @@ These are here to make the following nicer:
 
     import Accessibility.Styled as Html exposing (..)
 
-@docs Html, Attribute, map, fromUnstyled, toUnstyled
+@docs Html, Attribute, map, fromUnstyled, toUnstyled, styled
 
 -}
 
@@ -154,6 +154,7 @@ import Accessibility.Styled.Role as Role
 import Accessibility.Styled.Style as Style
 import Accessibility.Styled.Utils exposing (nonInteractive)
 import Accessibility.Styled.Widget as Widget
+import Css
 import Html as RootHtml
 import Html.Styled as Html
 import Html.Styled.Attributes
@@ -1208,3 +1209,14 @@ fromUnstyled =
 toUnstyled : Html msg -> RootHtml.Html msg
 toUnstyled =
     Html.toUnstyled
+
+
+{-| -}
+styled :
+    (List (Attribute a) -> List (Html b) -> Html msg)
+    -> List Css.Style
+    -> List (Attribute a)
+    -> List (Html b)
+    -> Html msg
+styled =
+    Html.styled
