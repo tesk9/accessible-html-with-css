@@ -1,4 +1,4 @@
-module Accessibility.Styled.Style exposing (invisible)
+module Accessibility.Styled.Style exposing (invisibleStyle, invisible)
 
 {-|
 
@@ -7,12 +7,32 @@ module Accessibility.Styled.Style exposing (invisible)
 
 For more information on hiding/semi-hiding elements, please see [the a11y project.](http://a11yproject.com/posts/how-to-hide-content/)
 
-@docs invisible
+@docs invisibleStyle, invisible
 
 -}
 
+import Css exposing (Style)
 import Html.Styled as Html
 import Html.Styled.Attributes
+
+
+{-| Makes content invisible without making it inaccessible.
+
+    label [ css invisibleStyle ] [ text "Screen readers can still read me!" ]
+
+-}
+invisibleStyle : Style
+invisibleStyle =
+    Css.batch
+        [ Css.property "clip" "rect(1px, 1px, 1px, 1px)"
+        , Css.position Css.absolute
+        , Css.height (Css.px 1)
+        , Css.width (Css.px 1)
+        , Css.overflow Css.hidden
+        , Css.margin (Css.px -1)
+        , Css.padding Css.zero
+        , Css.border Css.zero
+        ]
 
 
 {-| Makes content invisible without making it inaccessible.
