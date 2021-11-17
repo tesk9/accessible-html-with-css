@@ -161,7 +161,12 @@ indeterminate =
     property "indeterminate" (Json.Encode.bool True)
 
 
-{-| Supported for all elements. Elements are not disabled (are enabled) by default.
+{-| Supported for all elements. Elements are not disabled (they are enabled) by default.
+
+In deciding whether to use `Accessibility.Styled.Widget.disabled` or `Html.Styled.Attributes.disabled`, it may be helpful to read through the [Focusablity of disabled controls](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_disabled_controls) section of the WAI-ARIA Practices recommendations.
+
+In essence, you may want to use `Accessibility.Styled.Widget.disabled` instead of `Html.Styled.Attributes.disabled` if you want users to be aware of disabled elements, and you don't mind that users will need to navigate through these disabled elements.
+
 -}
 disabled : Bool -> Html.Attribute msg
 disabled =

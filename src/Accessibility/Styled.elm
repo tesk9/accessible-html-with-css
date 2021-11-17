@@ -249,13 +249,18 @@ labelHidden id attributes labelContent input =
 {-| Constructs an input of type "text". Use in conjunction with one of the label
 helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    firstNameInput : String -> Html Msg
+    firstNameInput : String -> Html msg
     firstNameInput name =
         labelHidden
             "name-input"
             [ class "data-entry" ]
             (text "First Name:")
-            (inputText name [ onBlur FirstName ])
+            (inputText name [ property "autocomplete" "given-name" ])
+
+Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes
+(Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
+
+You might notice that `Html.Styled.Attributes` and `Html.Attributes` don't provide full autocomplete support. This is tracked in [elm/html issue 189](https://github.com/elm/html/issues/189).
 
 -}
 inputText : String -> List (Attribute msg) -> Html msg
@@ -269,16 +274,20 @@ inputText value_ attributes =
         []
 
 
-{-| Constructs an input of type "text" but constricting the input to allow only numbers as recommended by gov.uk (See: <https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/>). Use in conjunction with one of the label
-helpers (`labelBefore`, `labelAfter`, `labelHidden`).
+{-| Constructs an input of type "text" but constricting the input to allow only numbers as recommended by [gov.uk](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/). Use in conjunction with one of the label helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    ageInput : String -> Html Msg
+    ageInput : String -> Html msg
     ageInput age =
         labelHidden
             "age-input"
             [ class "data-entry" ]
-            (text "Age:")
-            (inputNumber age [ onBlur Age ])
+            (text "Birth year:")
+            (inputNumber age [ property "autocomplete" "bday-year" ])
+
+Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes
+(Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
+
+You might notice that `Html.Styled.Attributes` and `Html.Attributes` don't provide full autocomplete support. This is tracked in [elm/html issue 189](https://github.com/elm/html/issues/189).
 
 -}
 inputNumber : String -> List (Attribute msg) -> Html msg

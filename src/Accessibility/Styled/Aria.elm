@@ -10,15 +10,23 @@ module Accessibility.Styled.Aria exposing
     , errorMessage
     )
 
-{-|
+{-| Learn more about about W3C's Web Accessibility Initiative's Accessible Rich Internet Applications standards ("WAI-ARIA") at [w3.org](https://www.w3.org/WAI/standards-guidelines/aria/).
+
+Please keep in mind that ARIA attributes are best used sparingly -- your users are better off with semantic HTML than they are with divs with many ARIA attributes. See [No ARIA is better than BAD ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/#no_aria_better_bad_aria) from the WAI-ARIA Authoring Practices guide.
 
 @docs activeDescendant, controls
 
 
 ### Providing More Info
 
+  - Learn the challenges non-text content can cause your users in [Understanding Success Criterion 1.1.1: Non-text Content](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html)
+  - Learn how to define relationships between elements in [Understanding Success Criterion 1.3.1: Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships)
+  - Learn how a user agent will determine the accessible name and description of an element in [Accessible Name and Description Computation 1.1](https://www.w3.org/TR/accname-1.1/)
+
 @docs longDescription, details, describedBy, labelledBy, labeledBy
 @docs keyShortcuts, roleDescription
+
+Looking for aria-label? Please see `label` in `Accessibility.Styled.Widget`.
 
 
 ### Navigation and Flow
@@ -36,7 +44,7 @@ module Accessibility.Styled.Aria exposing
 @docs colCount, colIndex, colSpan, rowCount, rowIndex, rowSpan
 
 
-### Set-related
+### Set Related
 
 @docs setSize, posInSet
 
@@ -54,16 +62,17 @@ import Html.Styled as Html
 import Html.Styled.Attributes exposing (..)
 
 
-{-| Creates aria labelledby attribute. Pass the unique string id of the labelling element.
-`labeledBy` and `labelledBy` are identical.
+{-| Convenience alias for `labelledBy`.
 -}
 labeledBy : String -> Html.Attribute msg
 labeledBy =
     labelledBy
 
 
-{-| Creates aria labelledby attribute. Pass the unique string id of the labelling element.
-`labeledBy` and `labelledBy` are identical.
+{-| Creates an [`aria-labelledby`](https://www.w3.org/TR/wai-aria-1.1/#aria-labelledby) attribute.
+
+Pass the unique string id of the labelling element. Only use this property if the label is _visible_ (if the label is _not_ visible, prefer `Accessibility.Styled.Widget.label`).
+
 -}
 labelledBy : String -> Html.Attribute msg
 labelledBy =
@@ -80,6 +89,9 @@ labelledBy =
         img
             "Growth Chart in Some Sweet Unit (Quarter 4)"
             [ longDescription "/quarter_4_summary#Growth" ]
+
+Note that this is a deprecated HTML property, not an ARIA property. See [MDN documentation on HTMLImageElement.longDesc
+](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/longDesc) for general documentation and [Using longdesc (Technique H45)](https://www.w3.org/WAI/WCAG21/Techniques/html/H45) for accessibility documentation.
 
 -}
 longDescription : String -> Html.Attribute msg
@@ -252,10 +264,11 @@ currentItem =
     aria "current" << toBoolString
 
 
-{-| Supported by all elements.
+{-| Supported by all elements. Pass it a list of ids of elements that describe the given element.
 
-Kind of a more-verbose version of `labelledBy`. Pass it a list of ids
-of elements that describe the given element.
+Pass in ids of elements that describe the current element to create an [aria-describedby association](https://www.w3.org/TR/wai-aria-1.1/#aria-describedby).
+
+You may wish to review the documentation for `labelledBy` and `details` as well -- which property you should use will depend on your specific UX requirements.
 
 -}
 describedBy : List String -> Html.Attribute msg
@@ -266,7 +279,7 @@ describedBy =
 {-| Supported by all elements.
 
 Refer to a single extended description section--maybe a couple of paragraphs
-and a chart. Pass in the section's id.
+and a chart. Pass in the HTML id of an element with details about the current element to create an [aria-details association](https://www.w3.org/TR/wai-aria-1.1/#aria-details).
 
 -}
 details : String -> Html.Attribute msg
@@ -299,12 +312,15 @@ flowTo =
     aria "flowto" << toListString
 
 
-{-| Supported by all elements.
-
-Keyboard shortcuts!!! Pass in a list of keyboard shortcuts. See [recommendations](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_shortcuts)
-on how to make good shortcuts.
+{-| Supported by all elements. Pass in a list of keyboard shortcuts to use the [ aria-keyshortcuts property](https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts).
 
     keyShortcuts [ "Alt+Shift+P", "Control+F" ]
+
+Note that this property only indicates to users that certain keyboard shortcuts _exist_ -- this property does not change the behavior of the element to which it is attached. Please also note that it's nice to make the existence of keyboard shortcuts known to all users, not only to screenreader users!
+
+Learn more about the purpose of from The WAI-ARIA Authoring Practices guide's [Keyboard Shortcuts](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_shortcuts) section.
+
+Please be aware that providing single-character keyboard shortcuts may make using your site _less_ accessible for some users. Read [Understanding Success Criterion 2.1.4: Character Key Shortcuts](https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts) to learn more.
 
 -}
 keyShortcuts : List String -> Html.Attribute msg
@@ -326,6 +342,8 @@ placeholder =
 
 Provide human-readable description of the role of an element. Should be used
 alongside an actual role--this is supplementary information.
+
+Creates an [aria-roledescription property](https://www.w3.org/TR/wai-aria-1.1/#aria-roledescription).
 
 -}
 roleDescription : String -> Html.Attribute msg
