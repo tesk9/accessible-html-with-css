@@ -31,7 +31,14 @@ Looking for aria-label? Please see `label` in `Accessibility.Styled.Widget`.
 
 ### Navigation and Flow
 
+  - Audio-users experience all content linearly, since a screenreader will only read one word at a time. Learn about ordering content effectively with this constraint in mind in [Understanding Success Criterion 1.3.2: Meaningful Sequence](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence)
+  - Now that your content is ordered, consider how much of it, like the content in the header) is annoying to hear over & over again as you switch between pages! Learn about how skip links and landmarks can make your site more usable in [Understanding Success Criterion 2.4.1: Bypass Blocks](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks)
+
 @docs flowTo
+
+Looking for tab order? Please see `tabbable` in `Accessibility.Styled.Key`.
+
+Please also remember to use a descriptive title for your pages ([Understanding Success Criterion 2.4.2: Page Titled](https://www.w3.org/WAI/WCAG21/Understanding/page-titled)). Note that you'll only use Elm to set the page title if you're using `Browser.document` to start your Elm app.
 
 
 ### Textbox Related
@@ -301,10 +308,12 @@ errorMessage =
     aria "errormessage"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-flowto`](https://www.w3.org/TR/wai-aria-1.1/#aria-flowto) attribute.
 
 Provide an alternative document reading order and offer navigation to the
 elements referenced in the passed-in list of ids.
+
+Supported by all elements.
 
 -}
 flowTo : List String -> Html.Attribute msg

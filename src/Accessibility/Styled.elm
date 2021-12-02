@@ -687,8 +687,13 @@ div attributes =
 -- TEXT LEVEL SEMANTIC
 
 
-{-| `a` should generally not have event listeners. If you _really_ need to add
+{-| Read [Understanding Success Criterion 2.4.9: Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only) to improve the usability of your links.
+
+As you add links in your web application, please also consider reading through [Understanding Success Criterion 2.4.8: Location](https://www.w3.org/WAI/WCAG21/Understanding/location), which will help you learn how you can orient users to where they are in relation to the rest of the website content.
+
+`a` should generally not have event listeners. If you _really_ need to add
 an event listener, use the elm/html library instead.
+
 -}
 a : List (Attribute Never) -> List (Html msg) -> Html msg
 a attributes =
