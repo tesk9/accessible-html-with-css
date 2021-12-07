@@ -341,6 +341,10 @@ keyShortcuts =
 
 Provide a hint about an expected value.
 
+Creates an [aria-placeholder](https://www.w3.org/TR/wai-aria-1.1/#aria-placeholder) property.
+
+Generally, you should use `Html.Styled.Attributes.placeholder` instead of using `aria-placeholder`. The only time that you should add an `aria-placeholder` attribute is if you're rolling your own widget that's required you to explicitly set a wai-aria role. See some guidance around "implicit" aria semantics [here](https://www.w3.org/TR/html-aria/).
+
 -}
 placeholder : String -> Html.Attribute msg
 placeholder =
