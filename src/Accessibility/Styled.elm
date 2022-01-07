@@ -420,9 +420,9 @@ type alias Attribute msg =
     Html.Attribute msg
 
 
-{-| `map` directly aliases the function of the same name from elm/html.
+{-| `map` directly aliases the function of the same name from rtfeldman/elm-css.
 
-Please see [the docs for the original](http://package.elm-lang.org/packages/elm/html/2.0.0/Html#map).
+Please see [the docs for the Html.Styled.map](https://package.elm-lang.org/packages/rtfeldman/elm-css/17.0.1/Html-Styled#map).
 
 -}
 map : (a -> msg) -> Html a -> Html msg
