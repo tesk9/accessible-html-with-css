@@ -81,8 +81,6 @@ Together, `tabList`, `tab`, and `tabPanel` describe the pieces of a tab componen
                 [ text "Panel Two Content" ]
             ]
 
-For a more fully-fledged example using these helpers check out [elm-tabs](http://package.elm-lang.org/packages/tesk9/elm-tabs/latest).
-
 @docs tabList, tab, tabPanel
 
 
