@@ -63,6 +63,11 @@ Please also remember to use a descriptive title for your pages ([Understanding S
 
 @docs currentItem, currentPage, currentStep, currentLocation, currentDate, currentTime
 
+
+### Validations
+
+  - Users need to understand what to do when their submissions aren't valid. Read [Understanding Success Criterion 3.3.1: Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification) to better understand user requirements. You'll also find links to sufficient techniques for meeting this requirement.
+
 @docs errorMessage
 
 -}
@@ -347,13 +352,28 @@ details =
     aria "details"
 
 
-{-| Supported by all elements.
+{-| Create an [`aria-errormessage`](https://www.w3.org/TR/wai-aria-1.1/#aria-errormessage) element.
 
-Reference the element that has error details. e.g., if you've got an input field
-that's invalid, add `errorMessage` to the input with the id of whatever element
-is telling the user in what way their submission is wrong.
+Reference the element that has error details. e.g., if you've got an input field that's invalid, add `errorMessage` to the input with the id of whatever element is telling the user in what way their submission is wrong.
 
-    input [ invalid True, errorMessage "error-message-id" ] []
+    import Accessibility.Styled
+    import Accessibility.Styled.Aria as Aria
+    import Accessibility.Styled.Widget as Widget
+    import Html.Styled.Attributes exposing (id)
+
+    view : List (Html msg)
+    view =
+        [ labelBefore [] (text "Input content:") <|
+            inputText "some-content"
+                [ Widget.invalid True
+                , Aria.errorMessage "error-message-id"
+                ]
+        , span [ id "error-message-id" ] [ text "Better content required" ]
+        ]
+
+You must also use `Attribute.Styled.Widget.invalid` when using `errorMessage`.
+
+Supported by all elements.
 
 -}
 errorMessage : String -> Html.Attribute msg

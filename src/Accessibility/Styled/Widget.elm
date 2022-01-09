@@ -241,9 +241,13 @@ hidden =
     aria "hidden" << toBoolString
 
 
-{-| Supported for all elements.
+{-| Learn more about [Using Aria-Invalid to Indicate an Error Field](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21).
 
-For invalid grammar or spelling, please see `invalidGrammar` and `invalidSpelling` respectively.
+You may want to use `Accessibility.Styled.Aria.errorMessage` or `Accessibility.Styled.Aria.describedBy` to indicate what's invalid about the user's submission.
+
+For invalid grammar or spelling specifically, use `invalidGrammar` and `invalidSpelling` respectively.
+
+Supported for all elements.
 
 -}
 invalid : Bool -> Html.Attribute msg
