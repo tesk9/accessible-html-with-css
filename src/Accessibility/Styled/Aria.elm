@@ -38,7 +38,7 @@ Looking for aria-label? Please see `label` in `Accessibility.Styled.Widget`.
 
 Looking for tab order? Please see `tabbable` in `Accessibility.Styled.Key`.
 
-Please also remember to use a descriptive title for your pages ([Understanding Success Criterion 2.4.2: Page Titled](https://www.w3.org/WAI/WCAG21/Understanding/page-titled)). Note that you'll only use Elm to set the page title if you're using `Browser.document` to start your Elm app.
+Please also remember to use a descriptive title for your pages ([Understanding Success Criterion 2.4.2: Page Titled](https://www.w3.org/WAI/WCAG21/Understanding/page-titled)). Note that you'll only use Elm to set the page title if you're using [`Browser.document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#document) to start your Elm app.
 
 
 ### Textbox Related
