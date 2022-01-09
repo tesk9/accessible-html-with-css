@@ -255,9 +255,11 @@ controls =
     aria "controls"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, as `aria-current=page`.
 
 Indicate that a link in a nav or list is the current location.
+
+Supported by all elements.
 
 -}
 currentPage : Html.Attribute msg
@@ -265,9 +267,11 @@ currentPage =
     aria "current" "page"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, as `aria-current=step`.
 
 Indicate which step in a step-based flow is the current one.
+
+Supported by all elements.
 
 -}
 currentStep : Html.Attribute msg
@@ -282,9 +286,11 @@ currentLocation =
     aria "current" "location"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, as `aria-current=date`.
 
-As in a calendar widget.
+As in a calendar.
+
+Supported by all elements.
 
 -}
 currentDate : Html.Attribute msg
@@ -292,9 +298,11 @@ currentDate =
     aria "current" "date"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, as `aria-current=time`.
 
-As in a timepicker widget.
+As in a timepicker.
+
+Supported by all elements.
 
 -}
 currentTime : Html.Attribute msg
@@ -302,7 +310,14 @@ currentTime =
     aria "current" "time"
 
 
-{-| Supported by all elements.
+{-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, either `aria-current=true` or `aria-current=false`.
+
+Only 1 element in a set should be marked as the current item.
+
+Please double-check that you don't want `Accessibility.Styled.Widget.selected` instead.
+
+Supported by all elements.
+
 -}
 currentItem : Bool -> Html.Attribute msg
 currentItem =
