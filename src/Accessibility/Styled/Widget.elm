@@ -65,9 +65,7 @@ See [the autocomplete spec](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplet
 
 Pop-ups are supported for all elements (but not meant for use on tooltips).
 
-The pop-up itself needs to have a containing element with one of these roles:
-`menu`, `listbox`, `tree`, `grid`, or `dialog`, and the pop-up value must match.
-That is, use `hasMenuPopUp` if the pop-up container has a role of `menu`.
+The pop-up itself needs to have a containing element with one of these roles: `menu`, `listbox`, `tree`, `grid`, or `dialog`, and the pop-up value must match. That is, use `hasMenuPopUp` if the pop-up container has a role of `menu`.
 
 See [the spec](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup).
 
@@ -101,9 +99,7 @@ import Html.Styled.Attributes exposing (property)
 import Json.Encode
 
 
-{-| Available on `comboBox` or `textbox`.
-Use when there's a suggestion for completing the field that shows up
-in the line that the user is completing.
+{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field that shows up in the line that the user is completing.
 
 Be sure to indicate that the auto-completed text is selected.
 
@@ -113,9 +109,7 @@ autoCompleteInline =
     aria "autocomplete" "inline"
 
 
-{-| Available on `comboBox` or `textbox`.
-Use when there's a suggestion for completing the field that shows up as a list
-of options from which the user can pick.
+{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field that shows up as a list of options from which the user can pick.
 
 Be sure to indicate that the auto-completed text is selected.
 
@@ -127,9 +121,7 @@ autoCompleteList =
     aria "autocomplete" "list"
 
 
-{-| Available on `comboBox` or `textbox`.
-Use when there's a suggestion for completing the field when there's both
-inline autocomplete and list autocomplete occurring at once.
+{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field when there's both inline autocomplete and list autocomplete occurring at once.
 
 Be sure to indicate that the auto-completed text is selected.
 
@@ -175,9 +167,7 @@ disabled =
 
 {-| Available on `button`, `comboBox`, `document`, `link`, `section`, `sectionHead`, and `window`.
 
-Trickily, this attribute can be applied to either an element that is itself
-expanded/collapsed, OR to an elment it controls that is either expanded/collapsed.
-In the latter case, throw on a `controls` attribute as well to clarify the relationship.
+Trickily, this attribute can be applied to either an element that is itself expanded/collapsed, OR to an elment it controls that is either expanded/collapsed. In the latter case, throw on a `controls` attribute as well to clarify the relationship.
 
 -}
 expanded : Bool -> Html.Attribute msg
@@ -278,8 +268,7 @@ label =
 
 {-| Supported for `grid`, `heading`, `listItem`, `row`, and `tabList`.
 
-This attribute is about hierarchy--how many "levels" deep is an element? Please
-refer to the [documentation](https://www.w3.org/TR/wai-aria-1.1/#aria-level) to get a better sense of when to use.
+This attribute is about hierarchy--how many "levels" deep is an element? Please refer to the [documentation](https://www.w3.org/TR/wai-aria-1.1/#aria-level) to get a better sense of when to use.
 
     h7 attributes =
         div (heading :: level 7 :: attributes)
@@ -316,8 +305,7 @@ modal =
 
 Indicate whether the `textbox` is for multi-line inputs or single-line inputs.
 
-Careful of default keyboard behavior when coupling this property with text inputs,
-which by default submit their form group on enter.
+Be careful of default keyboard behavior when coupling this property with text inputs, which by default submit their form group on enter.
 
 -}
 multiLine : Bool -> Html.Attribute msg
@@ -325,8 +313,7 @@ multiLine =
     aria "multiline" << toBoolString
 
 
-{-| Supported on `grid`, `listBox`, `tabList`, `tree`. (However, what would it mean
-for a `tabList`, say, to have multiple selectable descendants?)
+{-| Supported on `grid`, `listBox`, `tabList`, `tree`. (However, what would it mean for a `tabList`, say, to have multiple selectable descendants?)
 
 When true, users are not restricted to selecting only one selectable descendant at a time.
 
@@ -336,8 +323,7 @@ multiSelectable =
     aria "multiselectable" << toBoolString
 
 
-{-| Supported on roles with some sense of inherent orientation:
-`progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
+{-| Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
 
 Careful: default behavior is inconsistent across those roles.
 
@@ -348,8 +334,7 @@ orientationHorizontal =
     aria "orientation" "horizontal"
 
 
-{-| Supported on roles with some sense of inherent orientation:
-`progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
+{-| Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
 
 Careful: default behavior is inconsistent across those roles.
 
@@ -362,11 +347,9 @@ orientationVertical =
 
 {-| Supported on `button`.
 
-Use `pressed` when describing a toggle button--a button that can be "toggled" between
-an on state and an off state (or an on state, an indeterminate state, and an off state).
+Use `pressed` when describing a toggle button--a button that can be "toggled" between an on state and an off state (or an on state, an indeterminate state, and an off state).
 
-Please check out these [examples](https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/button/button.html)
-as well.
+Please check out these [examples](https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/button/button.html) as well.
 
     button
         [ pressed <| Just True ]
@@ -379,12 +362,9 @@ pressed =
     aria "pressed" << toTriStateString
 
 
-{-| Supported on `checkBox`, `comboBox`, `grid`, `gridCell`, `listBox`,
-`radioGroup`, `slider`, `spinButton`, and `textBox`.
+{-| Supported on `checkBox`, `comboBox`, `grid`, `gridCell`, `listBox`, `radioGroup`, `slider`, `spinButton`, and `textBox`.
 
-Indicates read-only status of a widget, although normal navigation rules and
-copying behavior should apply. (Read: `readOnly` elements are navigable but
-unchangeable, and `disabled` elements are neither navigable nor unchangebale).
+Indicates read-only status of a widget, although normal navigation rules and copying behavior should apply. (Read: `readOnly` elements are navigable but unchangeable, and `disabled` elements are neither navigable nor unchangebale).
 
 -}
 readOnly : Bool -> Html.Attribute msg
@@ -412,8 +392,7 @@ selected =
     aria "selected" << toBoolString
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are
-used on table or grid headers.
+{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 This should only be applied to one header at a time.
 
@@ -425,8 +404,7 @@ sortAscending =
     aria "sort" "ascending"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are
-used on table or grid headers.
+{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 Only one column in a table should be sorting the values in table.
 
@@ -438,13 +416,11 @@ sortDescending =
     aria "sort" "descending"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are
-used on table or grid headers.
+{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 Only one column in a table should be sorting the values in table.
 
-Table is sorted by this column's values, but the algorithm for that sorting
-is custom (not ascending or descending).
+Table is sorted by this column's values, but the algorithm for that sorting is custom (not ascending or descending).
 
 -}
 sortCustom : Html.Attribute msg
@@ -452,8 +428,7 @@ sortCustom =
     aria "sort" "other"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are
-used on table or grid headers.
+{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 Table is not sorted by this column's values.
 
@@ -495,8 +470,7 @@ valueNow =
 
 {-| Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
 
-This property takes precedence over `valueNow`, and should show a human-readable
-version of the current value. However, `valueNow` should always be used.
+This property takes precedence over `valueNow`, and should show a human-readable version of the current value. However, `valueNow` should always be used.
 
 -}
 valueText : String -> Html.Attribute msg
