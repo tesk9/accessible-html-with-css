@@ -114,7 +114,7 @@ longDescription =
     attribute "longdesc"
 
 
-{-| Createsan [`aria-activedescendant`](https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant) attribute.
+{-| Creates an [`aria-activedescendant`](https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant) attribute.
 
 Identifies the currently-active element in order to provide an alternative way of managing focus.
 
