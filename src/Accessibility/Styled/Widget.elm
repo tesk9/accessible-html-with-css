@@ -1,10 +1,10 @@
 module Accessibility.Styled.Widget exposing
     ( required, label
+    , invalid, invalidGrammar, invalidSpelling
     , pressed
     , multiLine
-    , autoCompleteInline, autoCompleteList, autoCompleteBoth
     , checked, selected, indeterminate
-    , invalid, invalidGrammar, invalidSpelling
+    , autoCompleteInline, autoCompleteList, autoCompleteBoth
     , expanded, hidden, readOnly, disabled
     , modal
     , hasMenuPopUp, hasListBoxPopUp, hasTreePopUp, hasGridPopUp, hasDialogPopUp
@@ -22,19 +22,15 @@ module Accessibility.Styled.Widget exposing
 Some of these are also globally available, including: `busy`, `disabled`, `grabbed`, `hidden`, `invalid`.
 
 
-### Inputs
+### Inputs and Validation
+
+  - Learn more about making forms and inputs understandable in [Understanding Guideline 3.3: Input Assistance](https://www.w3.org/WAI/WCAG21/Understanding/input-assistance)
 
 @docs required, label
-
-
-### Button
-
+@docs invalid, invalidGrammar, invalidSpelling
 @docs pressed
-
-
-### TextBox
-
 @docs multiLine
+@docs checked, selected, indeterminate
 
 
 #### Auto-complete behavior:
@@ -42,16 +38,6 @@ Some of these are also globally available, including: `busy`, `disabled`, `grabb
 See [the autocomplete spec](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete).
 
 @docs autoCompleteInline, autoCompleteList, autoCompleteBoth
-
-
-### Selection
-
-@docs checked, selected, indeterminate
-
-
-### Validity
-
-@docs invalid, invalidGrammar, invalidSpelling
 
 
 ### Interactability
