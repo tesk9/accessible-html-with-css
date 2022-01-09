@@ -196,10 +196,11 @@ rowSpan =
     aria "rowspan" << String.fromInt
 
 
-{-| Supported by list-y elements: `article`, `listItem`, `menuItem`, `option`,
-`radio`, `tab`, `menuitemcheckbox`, `menuitemradio`, and `treeItem`.
+{-| Creates an [`aria-posinset`](https://www.w3.org/TR/wai-aria-1.1/#aria-posinset) attribute.
 
 Only necessary when not all of the items in the set are in the DOM. Use with `setSize`.
+
+Supported by elements that might appear in a list: `article`, `listItem`, `menuItem`, `option`, `radio`, `tab`, `menuitemcheckbox`, `menuitemradio`, and `treeItem`.
 
 -}
 posInSet : Int -> Html.Attribute msg
@@ -207,11 +208,39 @@ posInSet =
     aria "posinset" << String.fromInt
 
 
-{-| Supported by list-y elements: `article`, `listItem`, `menuItem`, `option`,
-`radio`, `tab`, `menuitemcheckbox`, `menuitemradio`, and `treeItem`.
+{-| Creates an [`aria-setsize`](https://www.w3.org/TR/wai-aria-1.1/#aria-setsize) attribute.
 
-`setSize` indicates the total number of items in a set where not all the items are
-currently present in the DOM.
+`setSize` indicates the total number of items in a set where not all the items are currently present in the DOM.
+
+Warning! The `setSize` is added to every set _item_, not to the element containing the set.
+
+The ARIA docs include this example, which I've converted to Elm and shorted a bit:
+
+    import Accessibility.Styled exposing (..)
+    import Accessibility.Styled.Aria as Aria
+    import Accessibility.Styled.Role as Role
+    import Html.Styled.Attributes exposing (id)
+
+    view : List (Html msg)
+    view =
+        [ h2 [ id "label_fruit" ] [ text "Available Fruit" ]
+        , ul [ Role.listBox, Aria.labelledBy "label_fruit" ]
+            [ li
+                [ Role.option
+                , Aria.setSize 16
+                , Aria.posInSet 5
+                ]
+                [ text "apples" ]
+            , li
+                [ Role.option
+                , Aria.setSize 16 -- <- Note the set size appears on the element, not on the container
+                , Aria.posInSet 6
+                ]
+                [ text "bananas" ]
+            ]
+        ]
+
+Supported by elements that might appear in a list: `article`, `listItem`, `menuItem`, `option`, `radio`, `tab`, `menuitemcheckbox`, `menuitemradio`, and `treeItem`.
 
 -}
 setSize : Int -> Html.Attribute msg
