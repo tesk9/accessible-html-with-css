@@ -48,6 +48,9 @@ Please also remember to use a descriptive title for your pages ([Understanding S
 
 ### Table Related
 
+  - Learn more about leveraging semantic native HTML elements to make accessible tables with various headings in [the Tables Concepts Web Accessibility Tutorial](https://www.w3.org/WAI/tutorials/tables/). If you've never heard of the `scope` or `headers` HTML attributes, this is the tutorial for you!
+  - Learn more about implementing a non-native HTML table in the [table section of the WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#table). Prefer to use the native HTML table whenever possible!
+
 @docs colCount, colIndex, colSpan, rowCount, rowIndex, rowSpan
 
 
@@ -118,12 +121,13 @@ activeDescendant =
     aria "activedescendant"
 
 
-{-| Supported by `table`, `grid`, `treegrid`.
+{-| Creates an [`aria-colcount`](https://www.w3.org/TR/wai-aria-1.1/#aria-colcount) attribute.
 
-Declares the number of columns in a grid in which not all of the columns are
-displayed. (If all columns are present--skip using this.)
+Describe the number of columns in a grid in which not all of the columns are currently in the DOM. (If all columns are already rendering, don't use this attribute.)
 
 `-1` indicates total column number is unknown.
+
+Supported by elements with roles `table`, `grid`, and `treegrid`.
 
 -}
 colCount : Int -> Html.Attribute msg
@@ -131,12 +135,16 @@ colCount =
     aria "colcount" << String.fromInt
 
 
-{-| Supported by `cell`, `row`, `columnHeader`, `gridCell`, and `rowHeader`.
+{-| Creates an [`aria-colindex`](https://www.w3.org/TR/wai-aria-1.1/#aria-colindex) attribute.
 
 Indexing begins from 1, NOT 0. Plus, the colIndex should not be greater than the `colCount`!
 If a cell stretches across multiple columns, use the starting column index and `colSpan`.
 
 The simplest rule is to put the `colIndex` on every child of a `row`.
+
+Please note that if all of the columns of the table/grid are already present in the DOM, you do not need to use this property.
+
+Supported by elements with roles `cell`, `row`, `columnHeader`, `gridCell`, and `rowHeader`.
 
 -}
 colIndex : Int -> Html.Attribute msg
@@ -144,9 +152,13 @@ colIndex =
     aria "colindex" << String.fromInt
 
 
-{-| Supported by `cell`, `columnHeader`, `gridCell`, and `rowHeader`.
+{-| Creates an [`aria-colspan`](https://www.w3.org/TR/wai-aria-1.1/#aria-colspan) attribute.
 
 Indicate how many columns-wide a cell is.
+
+Please use the [HTML attribute colspan](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) instead of `aria-colspan` for native HTML tables.
+
+Supported by elements with roles `cell`, `columnHeader`, `gridCell`, and `rowHeader`.
 
 -}
 colSpan : Int -> Html.Attribute msg
@@ -154,12 +166,9 @@ colSpan =
     aria "colspan" << String.fromInt
 
 
-{-| Supported by `table`, `grid`, `treegrid`.
+{-| Creates an [`aria-rowcount`](https://www.w3.org/TR/wai-aria-1.1/#aria-rowcount) attribute.
 
-Declares the number of rows in a grid in which not all of the rows are
-displayed. (If all rows are present--skip using this.)
-
-`-1` indicates total row number is unknown.
+Analagous to `colcount`.
 
 -}
 rowCount : Int -> Html.Attribute msg
@@ -167,7 +176,7 @@ rowCount =
     aria "rowcount" << String.fromInt
 
 
-{-| Supported by `cell`, `row`, `columnHeader`, `gridCell`, and `rowHeader`.
+{-| Creates an [`aria-rowindex`](https://www.w3.org/TR/wai-aria-1.1/#aria-rowindex) attribute.
 
 Analagous to `colIndex`.
 
@@ -177,9 +186,9 @@ rowIndex =
     aria "rowindex" << String.fromInt
 
 
-{-| Supported by `cell`, `columnHeader`, `gridCell`, and `rowHeader`.
+{-| Creates an [`aria-rowspan`](https://www.w3.org/TR/wai-aria-1.1/#aria-rowspan) attribute.
 
-Indicate how many rows-wide a cell is.
+Analagous to `colSpan`.
 
 -}
 rowSpan : Int -> Html.Attribute msg
