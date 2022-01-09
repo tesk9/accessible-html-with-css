@@ -114,11 +114,11 @@ longDescription =
     attribute "longdesc"
 
 
-{-| Supported in container-y roles: `application`, `composite`, `group`, `textbox`,
-`comboBox`, `grid`, `listBox`, `menu`, `menuBar`, `radioGroup`, `row`, `searchBox`,
-`select`, `spinButton`, `tabList`, `toolBar`, `tree`, and `treeGrid`.
+{-| Createsan [`aria-activedescendant`](https://www.w3.org/TR/wai-aria-1.1/#aria-activedescendant) attribute.
 
-Identifies the currently-active element.
+Identifies the currently-active element in order to provide an alternative way of managing focus.
+
+Supported in container-y roles: `application`, `composite`, `group`, `textbox`, `comboBox`, `grid`, `listBox`, `menu`, `menuBar`, `radioGroup`, `row`, `searchBox`, `select`, `spinButton`, `tabList`, `toolBar`, `tree`, and `treeGrid`.
 
 -}
 activeDescendant : String -> Html.Attribute msg
@@ -253,7 +253,12 @@ setSize =
     aria "setsize" << String.fromInt
 
 
-{-| Creates aria controls attribute. Pass the unique string id of whatever is being controlled.
+{-| Creates [`aria-controls`](https://www.w3.org/TR/wai-aria-1.1/#aria-controls) attribute.
+
+Pass a list of ids for the elements that are being controlled by the current element.
+
+Supported by all elements.
+
 -}
 controls : String -> Html.Attribute msg
 controls =
