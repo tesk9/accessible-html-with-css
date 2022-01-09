@@ -99,9 +99,11 @@ import Html.Styled.Attributes exposing (property)
 import Json.Encode
 
 
-{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field that shows up in the line that the user is completing.
+{-| Creates an [`aria-autocomplete="inline"`](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete) attribute.
 
-Be sure to indicate that the auto-completed text is selected.
+Use when there's a suggestion for completing the field that shows up in the line that the user is completing. Be sure to indicate that the auto-completed text is selected.
+
+Available on `comboBox` or `textbox`.
 
 -}
 autoCompleteInline : Html.Attribute msg
@@ -109,11 +111,13 @@ autoCompleteInline =
     aria "autocomplete" "inline"
 
 
-{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field that shows up as a list of options from which the user can pick.
+{-| Creates an [`aria-autocomplete="list"`](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete) attribute.
+
+Use when there's a suggestion for completing the field that shows up as a list of options from which the user can pick.
 
 Be sure to indicate that the auto-completed text is selected.
 
-See [the autocomplete spec](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete).
+Available on `comboBox` or `textbox`.
 
 -}
 autoCompleteList : Html.Attribute msg
@@ -121,11 +125,13 @@ autoCompleteList =
     aria "autocomplete" "list"
 
 
-{-| Available on `comboBox` or `textbox`. Use when there's a suggestion for completing the field when there's both inline autocomplete and list autocomplete occurring at once.
+{-| Creates an [`aria-autocomplete="both"`](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete) attribute.
+
+Use when there's a suggestion for completing the field when there's both inline autocomplete and list autocomplete occurring at once.
 
 Be sure to indicate that the auto-completed text is selected.
 
-See [the autocomplete spec](https://www.w3.org/TR/wai-aria-1.1/#aria-autocomplete).
+Available on `comboBox` or `textbox`.
 
 -}
 autoCompleteBoth : Html.Attribute msg
@@ -133,12 +139,11 @@ autoCompleteBoth =
     aria "autocomplete" "both"
 
 
-{-| Available on `checkbox`, `option`, `radio`, `switch`
+{-| Creates an [`aria-checked`](https://www.w3.org/TR/wai-aria-1.1/#aria-checked) attribute.
 
 Check boxes can be checked (`Just True`), unchecked (`Just False`), or indeterminate (`Nothing`).
-Other elements won't support tri-state checkedness.
 
-See [the checked spec](https://www.w3.org/TR/wai-aria-1.1/#aria-checked).
+Available on `checkbox`, `option`, `radio`, `switch`
 
 -}
 checked : Maybe Bool -> Html.Attribute msg
@@ -146,18 +151,23 @@ checked =
     aria "checked" << toTriStateString
 
 
-{-| Sets the indeterminate value to be true.
+{-| Creates an [`aria-indeterminate`](https://www.w3.org/TR/wai-aria-1.1/#aria-indeterminate) attribute.
+
+Sets the indeterminate value to be true.
+
 -}
 indeterminate : Html.Attribute msg
 indeterminate =
     property "indeterminate" (Json.Encode.bool True)
 
 
-{-| Supported for all elements. Elements are not disabled (they are enabled) by default.
+{-| Creates an [`aria-disabled`](https://www.w3.org/TR/wai-aria-1.1/#aria-disabled) attribute.
 
 In deciding whether to use `Accessibility.Styled.Widget.disabled` or `Html.Styled.Attributes.disabled`, it may be helpful to read through the [Focusablity of disabled controls](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_disabled_controls) section of the WAI-ARIA Practices recommendations.
 
 In essence, you may want to use `Accessibility.Styled.Widget.disabled` instead of `Html.Styled.Attributes.disabled` if you want users to be aware of disabled elements, and you don't mind that users will need to navigate through these disabled elements.
+
+Supported for all elements. Elements are not disabled (they are enabled) by default.
 
 -}
 disabled : Bool -> Html.Attribute msg
@@ -165,9 +175,11 @@ disabled =
     aria "disabled" << toBoolString
 
 
-{-| Available on `button`, `comboBox`, `document`, `link`, `section`, `sectionHead`, and `window`.
+{-| Creates an [`aria-expanded`](https://www.w3.org/TR/wai-aria-1.1/#aria-expanded) attribute.
 
-Trickily, this attribute can be applied to either an element that is itself expanded/collapsed, OR to an elment it controls that is either expanded/collapsed. In the latter case, throw on a `controls` attribute as well to clarify the relationship.
+This attribute can be applied to either an element that is itself expanded/collapsed, OR to an elment it controls that is either expanded/collapsed. In the latter case, use a `controls` attribute as well to clarify the relationship.
+
+Available on `button`, `comboBox`, `document`, `link`, `section`, `sectionHead`, and `window`.
 
 -}
 expanded : Bool -> Html.Attribute msg
@@ -175,7 +187,9 @@ expanded =
     aria "expanded" << toBoolString
 
 
-{-| Indicate that interaction with this element can trigger a `menu` pop-up.
+{-| Creates an [`aria-haspopup="menu"`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup) attribute.
+
+Indicate that interaction with this element can trigger a `menu` pop-up.
 
 Be careful while managing focus and triggering.
 
@@ -185,7 +199,9 @@ hasMenuPopUp =
     aria "haspopup" "menu"
 
 
-{-| Indicate that interaction with this element can trigger a `listBox` pop-up.
+{-| Creates an [`aria-haspopup="listbox"`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup) attribute.
+
+Indicate that interaction with this element can trigger a `listBox` pop-up.
 
 Be careful while managing focus and triggering.
 
@@ -195,7 +211,9 @@ hasListBoxPopUp =
     aria "haspopup" "listbox"
 
 
-{-| Indicate that interaction with this element can trigger a `tree` pop-up.
+{-| Creates an [`aria-haspopup="tree"`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup) attribute.
+
+Indicate that interaction with this element can trigger a `tree` pop-up.
 
 Be careful while managing focus and triggering.
 
@@ -205,7 +223,9 @@ hasTreePopUp =
     aria "haspopup" "tree"
 
 
-{-| Indicate that interaction with this element can trigger a `grid` pop-up.
+{-| Creates an [`aria-haspopup="grid"`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup) attribute.
+
+Indicate that interaction with this element can trigger a `grid` pop-up.
 
 Be careful while managing focus and triggering.
 
@@ -215,7 +235,9 @@ hasGridPopUp =
     aria "haspopup" "grid"
 
 
-{-| Indicate that interaction with this element can trigger a `dialog` pop-up.
+{-| Creates an [`aria-haspopup="dialog"`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup) attribute.
+
+Indicate that interaction with this element can trigger a `dialog` pop-up.
 
 Be careful while managing focus and triggering.
 
@@ -225,13 +247,16 @@ hasDialogPopUp =
     aria "haspopup" "dialog"
 
 
-{-| -}
+{-| Creates an [`aria-hidden`](https://www.w3.org/TR/wai-aria-1.1/#aria-hidden) attribute.
+-}
 hidden : Bool -> Html.Attribute msg
 hidden =
     aria "hidden" << toBoolString
 
 
-{-| Learn more about [Using Aria-Invalid to Indicate an Error Field](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21).
+{-| Creates an [`aria-invalid`](https://www.w3.org/TR/wai-aria-1.1/#aria-invalid) attribute.
+
+Learn more about [Using Aria-Invalid to Indicate an Error Field](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21).
 
 You may want to use `Accessibility.Styled.Aria.errorMessage` or `Accessibility.Styled.Aria.describedBy` to indicate what's invalid about the user's submission.
 
@@ -245,33 +270,44 @@ invalid =
     aria "invalid" << toBoolString
 
 
-{-| Supported for all elements.
+{-| Creates an [`aria-invalid="grammar"`](https://www.w3.org/TR/wai-aria-1.1/#aria-invalid) attribute.
+
+Supported for all elements.
+
 -}
 invalidGrammar : Html.Attribute msg
 invalidGrammar =
     aria "invalid" "grammar"
 
 
-{-| Supported for all elements.
+{-| Creates an [`aria-invalid="spelling"`](https://www.w3.org/TR/wai-aria-1.1/#aria-invalid) attribute.
+
+Supported for all elements.
+
 -}
 invalidSpelling : Html.Attribute msg
 invalidSpelling =
     aria "invalid" "spelling"
 
 
-{-| Supported for all elements.
+{-| Creates an [`aria-label`](https://www.w3.org/TR/wai-aria-1.1/#aria-label) attribute.
+
+Supported for all elements.
+
 -}
 label : String -> Html.Attribute msg
 label =
     aria "label"
 
 
-{-| Supported for `grid`, `heading`, `listItem`, `row`, and `tabList`.
+{-| Creates an [`aria-level`](https://www.w3.org/TR/wai-aria-1.1/#aria-level) attribute.
 
-This attribute is about hierarchy--how many "levels" deep is an element? Please refer to the [documentation](https://www.w3.org/TR/wai-aria-1.1/#aria-level) to get a better sense of when to use.
+This attribute is about hierarchy--how many "levels" deep is an element?
 
     h7 attributes =
         div (heading :: level 7 :: attributes)
+
+Supported for `grid`, `heading`, `listItem`, `row`, and `tabList`.
 
 -}
 level : Int -> Html.Attribute msg
@@ -279,8 +315,9 @@ level =
     aria "level" << String.fromInt
 
 
-{-| Indicate that a modal is showing and the rest of the page contents are not
-interactable.
+{-| Creates an [`aria-modal`](https://www.w3.org/TR/wai-aria-1.1/#aria-modal) attribute.
+
+Indicate that a modal is showing and the rest of the page contents are not interactable.
 
     import Accessibility exposing (div, h2, p, text)
     import Accessibility.Aria exposing (labelledBy)
@@ -301,11 +338,13 @@ modal =
     aria "modal" << toBoolString
 
 
-{-| Supported for `textbox` only.
+{-| Creates an [`aria-multiline`](https://www.w3.org/TR/wai-aria-1.1/#aria-multiline) attribute.
 
 Indicate whether the `textbox` is for multi-line inputs or single-line inputs.
 
 Be careful of default keyboard behavior when coupling this property with text inputs, which by default submit their form group on enter.
+
+Supported for `textbox` only.
 
 -}
 multiLine : Bool -> Html.Attribute msg
@@ -313,9 +352,11 @@ multiLine =
     aria "multiline" << toBoolString
 
 
-{-| Supported on `grid`, `listBox`, `tabList`, `tree`. (However, what would it mean for a `tabList`, say, to have multiple selectable descendants?)
+{-| Creates an [`aria-multiselectable`](https://www.w3.org/TR/wai-aria-1.1/#aria-multiselectable) attribute.
 
 When true, users are not restricted to selecting only one selectable descendant at a time.
+
+Supported on `grid`, `listBox`, `tabList`, `tree`.
 
 -}
 multiSelectable : Bool -> Html.Attribute msg
@@ -323,7 +364,9 @@ multiSelectable =
     aria "multiselectable" << toBoolString
 
 
-{-| Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
+{-| Creates an [`aria-orientation="horizontal`](https://www.w3.org/TR/wai-aria-1.1/#aria-orientation) attribute.
+
+Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
 
 Careful: default behavior is inconsistent across those roles.
 
@@ -334,7 +377,9 @@ orientationHorizontal =
     aria "orientation" "horizontal"
 
 
-{-| Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
+{-| Creates an [`aria-orientation="vertical"`](https://www.w3.org/TR/wai-aria-1.1/#aria-orientation="vertical") attribute.
+
+Supported on roles with some sense of inherent orientation: `progressBar`, `scrollbar`, `select`, `separator`, `slider`, `tabList`, `toolBar`
 
 Careful: default behavior is inconsistent across those roles.
 
@@ -345,7 +390,7 @@ orientationVertical =
     aria "orientation" "vertical"
 
 
-{-| Supported on `button`.
+{-| Creates an [`aria-pressed`](https://www.w3.org/TR/wai-aria-1.1/#aria-pressed) attribute.
 
 Use `pressed` when describing a toggle button--a button that can be "toggled" between an on state and an off state (or an on state, an indeterminate state, and an off state).
 
@@ -355,6 +400,8 @@ Please check out these [examples](https://www.w3.org/TR/2016/WD-wai-aria-practic
         [ pressed <| Just True ]
         [ text "This button should be styled for site viewers such that it's clear it's pressed!" ]
 
+Supported on `button`.
+
 -}
 pressed : Maybe Bool -> Html.Attribute msg
 pressed =
@@ -362,9 +409,11 @@ pressed =
     aria "pressed" << toTriStateString
 
 
-{-| Supported on `checkBox`, `comboBox`, `grid`, `gridCell`, `listBox`, `radioGroup`, `slider`, `spinButton`, and `textBox`.
+{-| Creates an [`aria-readonly`](https://www.w3.org/TR/wai-aria-1.1/#aria-readonly) attribute.
 
 Indicates read-only status of a widget, although normal navigation rules and copying behavior should apply. (Read: `readOnly` elements are navigable but unchangeable, and `disabled` elements are neither navigable nor unchangebale).
+
+Supported on `checkBox`, `comboBox`, `grid`, `gridCell`, `listBox`, `radioGroup`, `slider`, `spinButton`, and `textBox`.
 
 -}
 readOnly : Bool -> Html.Attribute msg
@@ -372,9 +421,11 @@ readOnly =
     aria "readonly" << toBoolString
 
 
-{-| Supported by `comboBox`, `gridCell`, `listBox`, `radioGroup`, `spinButton`, `textBox`, `tree`
+{-| Creates an [`aria-required`](https://www.w3.org/TR/wai-aria-1.1/#aria-required) attribute.
 
 Indicate whether user input is or is not required on a field for valid form submission.
+
+Supported by `comboBox`, `gridCell`, `listBox`, `radioGroup`, `spinButton`, `textBox`, `tree`
 
 -}
 required : Bool -> Html.Attribute msg
@@ -382,9 +433,11 @@ required =
     aria "required" << toBoolString
 
 
-{-| Supported by `gridCell`, `option`, `row`, `tab`.
+{-| Creates an [`aria-selected`](https://www.w3.org/TR/wai-aria-1.1/#aria-selected) attribute.
 
 Indicate whether an element (in a single- or multi-selectable widget) is or is not selected.
+
+Supported by `gridCell`, `option`, `row`, `tab`.
 
 -}
 selected : Bool -> Html.Attribute msg
@@ -392,11 +445,11 @@ selected =
     aria "selected" << toBoolString
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
+{-| Creates an [`aria-sort="ascending"`](https://www.w3.org/TR/wai-aria-1.1/#aria-sort) attribute.
 
-This should only be applied to one header at a time.
+Table is sorted by this column's values in ascending order. Only one column in a table should be sorting the values in table.
 
-Table is sorted by this column's values in ascending order.
+Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 -}
 sortAscending : Html.Attribute msg
@@ -404,11 +457,11 @@ sortAscending =
     aria "sort" "ascending"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
+{-| Creates an [`aria-sort="descending"`](https://www.w3.org/TR/wai-aria-1.1/#aria-sort) attribute.
 
-Only one column in a table should be sorting the values in table.
+Table is sorted by this column's values in descending order. Only one column in a table should be sorting the values in table.
 
-Table is sorted by this column's values in descending order.
+Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 -}
 sortDescending : Html.Attribute msg
@@ -416,11 +469,11 @@ sortDescending =
     aria "sort" "descending"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
+{-| Creates an [`aria-sort="other"`](https://www.w3.org/TR/wai-aria-1.1/#aria-sort) attribute.
 
-Only one column in a table should be sorting the values in table.
+Table is sorted by this column's values, but the algorithm for that sorting is custom (not ascending or descending). Only one column in a table should be sorting the values in table.
 
-Table is sorted by this column's values, but the algorithm for that sorting is custom (not ascending or descending).
+Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 -}
 sortCustom : Html.Attribute msg
@@ -428,9 +481,11 @@ sortCustom =
     aria "sort" "other"
 
 
-{-| Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
+{-| Creates an [`aria-sort="none"`](https://www.w3.org/TR/wai-aria-1.1/#aria-sort) attribute.
 
 Table is not sorted by this column's values.
+
+Supported by `columnHeader` and `rowHeader`, but only where those roles are used on table or grid headers.
 
 -}
 sortNone : Html.Attribute msg
@@ -438,9 +493,11 @@ sortNone =
     aria "sort" "none"
 
 
-{-| Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
+{-| Creates an [`aria-valuemax`](https://www.w3.org/TR/wai-aria-1.1/#aria-valuemax) attribute.
 
 Set the max allowed value for a range widget.
+
+Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
 
 -}
 valueMax : Float -> Html.Attribute msg
@@ -448,9 +505,11 @@ valueMax =
     aria "valuemax" << String.fromFloat
 
 
-{-| Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
+{-| Creates an [`aria-valuemin`](https://www.w3.org/TR/wai-aria-1.1/#aria-valuemin) attribute.
 
 Set the min allowed value for a range widget.
+
+Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
 
 -}
 valueMin : Float -> Html.Attribute msg
@@ -458,9 +517,11 @@ valueMin =
     aria "valuemin" << String.fromFloat
 
 
-{-| Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
+{-| Creates an [`aria-valuenow`](https://www.w3.org/TR/wai-aria-1.1/#aria-valuenow) attribute.
 
 Set the current value for a range widget. Don't use this property for indeterminate states.
+
+Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
 
 -}
 valueNow : Float -> Html.Attribute msg
@@ -468,9 +529,11 @@ valueNow =
     aria "valuenow" << String.fromFloat
 
 
-{-| Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
+{-| Creates an [`aria-valuetext`](https://www.w3.org/TR/wai-aria-1.1/#aria-valuetext) attribute.
 
 This property takes precedence over `valueNow`, and should show a human-readable version of the current value. However, `valueNow` should always be used.
+
+Supported by `progressBar`, `scrollbar`, `separator`, `slider`, and `spinButton`.
 
 -}
 valueText : String -> Html.Attribute msg
