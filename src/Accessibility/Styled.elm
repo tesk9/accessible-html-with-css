@@ -158,24 +158,9 @@ import Html.Styled as Html
 import Html.Styled.Attributes
 
 
-{-| All inputs must be associated with a `<label>` tag. Here is an example
-that creates a text input for first names:
+{-| All inputs must be associated with a `label`.
 
-    firstNameInput : String -> Html msg
-    firstNameInput name =
-        labelBefore
-            [ class "data-entry" ]
-            (text "First Name:")
-            (input [ type_ "text" ] name)
-
-Now if you said `firstNameInput "Tom"` you would get HTML like this:
-
-```html
-<label class="data-entry">
-  First Name:
-  <input type="text" value="Tom"></input>
-</label>
-```
+    labelBefore [] viewLabel viewInput
 
 -}
 labelBefore : List (Attribute Never) -> Html Never -> Html msg -> Html msg
@@ -183,24 +168,9 @@ labelBefore attributes labelContent input =
     label attributes [ Html.map Basics.never labelContent, input ]
 
 
-{-| All inputs must be associated with a `<label>` tag. Here is an example
-that creates a text input for first names:
+{-| All inputs must be associated with a `label`.
 
-    firstNameInput : String -> Html msg
-    firstNameInput name =
-        labelAfter
-            [ class "data-entry" ]
-            (text "First Name:")
-            (input [ type_ "text" ] name)
-
-Now if you said `firstNameInput "Tom"` you would get HTML like this:
-
-```html
-<label class="data-entry">
-  <input type="text" value="Tom"></input>
-  First Name:
-</label>
-```
+    labelAfter [] viewLabel viewInput
 
 -}
 labelAfter : List (Attribute Never) -> Html Never -> Html msg -> Html msg
@@ -208,27 +178,11 @@ labelAfter attributes labelContent input =
     label attributes [ input, Html.map Basics.never labelContent ]
 
 
-{-| All inputs must be associated with a `<label>` tag. Here is an example
-that creates a text input for first names:
+{-| All inputs must be associated with a `label`.
 
-    firstNameInput : String -> Html msg
-    firstNameInput name =
-        labelHidden
-            "name-input"
-            [ class "data-entry" ]
-            (text "First Name:")
-            (input [ type_ "text", id "name-input" ] name)
+    labelHidden "id-of-input" [] viewLabel viewInput
 
-Now if you said `firstNameInput "Tom"` you would get HTML like this:
-
-```html
-<span>
-    <label for="name-input" class="data-entry" style="[styles hiding the input]">
-        First Name:
-    </label>
-    <input id="name-input" type="text" value="Tom"></input>
-</span>
-```
+The id that's passed in must be added to the input!
 
 -}
 labelHidden : String -> List (Attribute Never) -> Html Never -> Html msg -> Html msg
@@ -244,19 +198,11 @@ labelHidden id attributes labelContent input =
 {- *** Inputs *** -}
 
 
-{-| Constructs an input of type "text". Use in conjunction with one of the label
-helpers (`labelBefore`, `labelAfter`, `labelHidden`).
+{-| Constructs an input of type `text`. Use in conjunction with one of the label helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    firstNameInput : String -> Html msg
-    firstNameInput name =
-        labelHidden
-            "name-input"
-            [ class "data-entry" ]
-            (text "First Name:")
-            (inputText name [ property "autocomplete" "given-name" ])
+    inputText "the value of the input" [ property "autocomplete" "given-name" ]
 
-Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes
-(Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
+Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes (Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
 
 You might notice that `Html.Styled.Attributes` and `Html.Attributes` don't provide full autocomplete support. This is tracked in [elm/html issue 189](https://github.com/elm/html/issues/189).
 
@@ -274,16 +220,9 @@ inputText value_ attributes =
 
 {-| Constructs an input of type "text" but constricting the input to allow only numbers as recommended by [gov.uk](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/). Use in conjunction with one of the label helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    ageInput : String -> Html msg
-    ageInput age =
-        labelHidden
-            "age-input"
-            [ class "data-entry" ]
-            (text "Birth year:")
-            (inputNumber age [ property "autocomplete" "bday-year" ])
+    inputNumber 1950 [ property "autocomplete" "bday-year" ]
 
-Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes
-(Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
+Use the HTML autocomplete attribute whenever possible. Read [Understanding Success Criterion 1.3.5: Identify Input Purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose) and [Using HTML 5.2 autocomplete attributes (Technique H98)](https://www.w3.org/WAI/WCAG21/Techniques/html/H98) for more information.
 
 You might notice that `Html.Styled.Attributes` and `Html.Attributes` don't provide full autocomplete support. This is tracked in [elm/html issue 189](https://github.com/elm/html/issues/189).
 
@@ -301,15 +240,9 @@ inputNumber value_ attributes =
         []
 
 
-{-| Constructs an input of type "radio". Use in conjunction with one of the label
-helpers (`labelBefore`, `labelAfter`, `labelHidden`).
+{-| Constructs an input of type "radio". Use in conjunction with one of the label helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    elementaryGradeInput : String -> Html Msg
-    elementaryGradeInput name =
-        labelAfter
-            []
-            (text "Elementary School")
-            (radio "school-radio-group" "Elementary" True [])
+    radio "radio-group-name" "Radio input value" True []
 
 -}
 radio : String -> String -> Bool -> List (Attribute msg) -> Html msg
@@ -325,16 +258,11 @@ radio name_ value_ checked_ attributes =
         []
 
 
-{-| Constructs an input of type "checkbox". Use in conjunction with one of the label
-helpers (`labelBefore`, `labelAfter`, `labelHidden`).
-Checkboxes may be checked, unchecked, or indeterminate.
+{-| Constructs an input of type "checkbox". Use in conjunction with one of the label helpers (`labelBefore`, `labelAfter`, `labelHidden`).
 
-    filterResultsInput : Maybe Bool -> Html Msg
-    filterResultsInput checked =
-        labelBefore
-            []
-            (text "Filter Results")
-            (checkbox "No filter" Nothing [])
+Checkboxes may be checked (`Just True`), unchecked (`Just False`), or indeterminate (`Nothing`).
+
+    checkbox "Checkbox value" Nothing []
 
 -}
 checkbox : String -> Maybe Bool -> List (Attribute msg) -> Html msg
@@ -362,8 +290,10 @@ tabList attributes =
 
 
 {-| Create a tab. This is the part that you select in order to change panel views.
+
 You'll want to listen for click events **and** for keyboard events: when users hit
 the right and left keys on their keyboards, they expect for the selected tab to change.
+
 -}
 tab : List (Attribute msg) -> List (Html msg) -> Html msg
 tab attributes =
@@ -381,8 +311,7 @@ tabPanel attributes =
 {- *** Images *** -}
 
 
-{-| Use this tag when the image provides information not expressed in the text of the page.
-When images are used to express the purpose of a button or link, aim for alternative text that encapsulates the function of the image.
+{-| Use this tag when the image provides information not expressed in the text of the page. When images are used to express the purpose of a button or link, aim for alternative text that encapsulates the function of the image.
 
 Read through [the w3 informative image tutorial](https://www.w3.org/WAI/tutorials/images/informative/) and the [the w3 functional image tutorial](https://www.w3.org/WAI/tutorials/images/functional/) to learn more.
 
