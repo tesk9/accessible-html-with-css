@@ -46,7 +46,7 @@ more options.
 Together, `tabList`, `tab`, and `tabPanel` describe the pieces of a tab component view.
 
     import Accessibility.Styled exposing (Html, tab, tabList, tabPanel, text)
-    import Accessibility.Styled.Widget exposing (controls, hidden, labelledBy, selected)
+    import Accessibility.Styled.Aria exposing (controls, hidden, labelledBy, selected)
     import Html.Styled.Attributes exposing (id)
 
     view : Html msg
@@ -147,11 +147,11 @@ These are here to make the following nicer:
 
 -}
 
+import Accessibility.Styled.Aria as Aria
 import Accessibility.Styled.Key as Key
 import Accessibility.Styled.Role as Role
 import Accessibility.Styled.Style as Style
 import Accessibility.Styled.Utils exposing (nonInteractive)
-import Accessibility.Styled.Widget as Widget
 import Css
 import Html as RootHtml
 import Html.Styled as Html
@@ -271,7 +271,7 @@ checkbox value_ maybeChecked attributes =
         (nonInteractive
             [ Html.Styled.Attributes.type_ "checkbox"
             , Html.Styled.Attributes.value value_
-            , Maybe.withDefault Widget.indeterminate (Maybe.map Html.Styled.Attributes.checked maybeChecked)
+            , Maybe.withDefault Aria.indeterminate (Maybe.map Html.Styled.Attributes.checked maybeChecked)
             ]
             ++ attributes
         )
