@@ -14,8 +14,7 @@ spec : Test
 spec =
     describe "Accessibility.Landmark" <|
         List.map (\( a, b ) -> addsRole a b)
-            [ ( application, "application" )
-            , ( banner, "banner" )
+            [ ( banner, "banner" )
             , ( complementary, "complementary" )
             , ( contentInfo, "contentinfo" )
             , ( form, "form" )

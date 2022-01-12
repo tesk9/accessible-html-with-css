@@ -12,7 +12,7 @@ module Accessibility.Styled.Role exposing
     , tab, tabList, tabPanel
     , toolBar, toolTip
     , tree, treeGrid, treeItem
-    , presentation
+    , presentation, application
     )
 
 {-|
@@ -85,7 +85,7 @@ module Accessibility.Styled.Role exposing
 
 ## Other
 
-@docs presentation
+@docs presentation, application
 
 -}
 
@@ -470,3 +470,13 @@ treeGrid =
 treeItem : Html.Attribute msg
 treeItem =
     role Treeitem
+
+
+{-| Creates a [`role="application"`](https://www.w3.org/TR/wai-aria-1.1/#application) attribute.
+
+**Be very careful with this attribute!** Be sure you fully understand what you're doing before you use it.
+
+-}
+application : Html.Attribute msg
+application =
+    role Application
