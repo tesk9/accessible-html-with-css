@@ -324,9 +324,9 @@ Pass a list of ids for the elements that are being controlled by the current ele
 Supported by all elements.
 
 -}
-controls : String -> Html.Attribute msg
+controls : List String -> Html.Attribute msg
 controls =
-    aria "controls"
+    aria "controls" << toListString
 
 
 {-| Creates an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute, as `aria-current=page`.
