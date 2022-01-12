@@ -30,26 +30,18 @@ A great place to start is reading about the [principles of accessibility](https:
 
 If you know you want to make a specific kind of widget, the Web Accessibility Initiative has specific [authoring best practices](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_ex) and recommendations for you, along with really great examples.
 
+## Changelog
+
+### 3.0.0
+
+1. All `Accessibility.Styled.Widget` helpers were folded into `Accessibility.Styled.Aria`, in order to make finding an ARIA helper more intuitive. Depending on your codebase, doing a find-and-replace `Widget` with `Aria` followed by running `elm-format` may suffice.
+
 
 ## Modules
 
 ### Accessibility.Styled
 
 This section extends the html library to include `tab*` elements, `radio`, `inputText`, `checkbox`, and more. It also shadows the `elm/html` library to encourage limiting interactive behavior to html5 interactable elements.
-
-### Accessibility.Styled.Aria
-
-This section includes roles for working with sets, grids, controls, and more. You're most likely to want the helpers for connecting elements to each other, by specifying that one `controls` another, or that a figure has `details` somewhere else.
-
-### Accessibility.Styled.Key
-
-When making widgets, you will need to add keyboard shortcuts to make keyboard navigation possible.
-
-For instance, `space` and on `enter` should activate a button,`space` should change a checkbox's state, `escape` should close a modal, and `up`, `down`, `left`, and `right` should navigate focus in a menu.
-
-### Accessibility.Styled.Landmark
-
-You're likely to only want `search` from this section unless you're not using HTML5 elements.
 
 ### Accessibility.Styled.Live
 
@@ -59,14 +51,22 @@ Describe which sections of the page are changing over time, and how aggressively
 
 Much of the time, sticking with HTML5 is better than using these properties. However, the WAI-ARIA spec moves at a different pace than the HTML spec--and user agent technologies are another factor entirely! You are likely to find yourself using a combination of these `Accessibility.Styled.Role` attributes.
 
+### Accessibility.Styled.Aria
+
+This section includes all ARIA attributes that aren't describing Landmarks, Roles, or Live regions.
+
 ### Accessibility.Styled.Style
 
 This section contains helpers for changing the look of your site without making it unusable.
 
 For instance, if you prefer to use placeholders to convey what sort of values belong in an input, you can use the `invisible` helper to remove the label for screenviewers without removing it for screenreaders.
 
-### Accessibility.Styled.Widget
+### Accessibility.Styled.Landmark
 
-Look here for managing widget state: is a given widget `expanded` or `disabled` or `pressed`?
+You're likely to only want `search` from this section unless you're not using HTML5 elements.
 
-If you're rolling your own widget, you need to take a peek at this section.
+### Accessibility.Styled.Key
+
+When making widgets, you will need to add keyboard shortcuts to make keyboard navigation possible.
+
+For instance, `space` and on `enter` should activate a button,`space` should change a checkbox's state, `escape` should close a modal, and `up`, `down`, `left`, and `right` should navigate focus in a menu.
