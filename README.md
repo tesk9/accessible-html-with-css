@@ -30,6 +30,12 @@ A great place to start is reading about the [principles of accessibility](https:
 
 If you know you want to make a specific kind of widget, the Web Accessibility Initiative has specific [authoring best practices](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_ex) and recommendations for you, along with really great examples.
 
+## Changelog
+
+### 3.0.0
+
+1. All `Accessibility.Styled.Widget` helpers were folded into `Accessibility.Styled.Aria`, in order to make finding an ARIA helper more intuitive. Depending on your codebase, doing a find-and-replace `Widget` with `Aria` followed by running `elm-format` may suffice.
+
 
 ## Modules
 
