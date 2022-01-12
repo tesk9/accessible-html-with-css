@@ -16,6 +16,7 @@ spec =
         List.map (\( a, b ) -> addsRole a b)
             [ ( alert, "alert" )
             , ( alertDialog, "alertdialog" )
+            , ( application, "application" )
             , ( article, "article" )
             , ( button, "button" )
             , ( checkBox, "checkbox" )
