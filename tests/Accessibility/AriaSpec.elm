@@ -23,7 +23,8 @@ spec =
         , test "colSpan" <|
             expectAria ( colSpan, 15 ) ( "colspan", "15" )
         , test "controls" <|
-            expectAria ( controls, "controlled-element-id" ) ( "controls", "controlled-element-id" )
+            expectAria ( controls, [ "controlled-element-id", "controlled-element-id-2" ] )
+                ( "controls", "controlled-element-id controlled-element-id-2" )
         , describe "currentItem" <|
             expectAriaBoolAttribute currentItem "current"
         , test "currentPage" <|

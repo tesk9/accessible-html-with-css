@@ -36,6 +36,7 @@ If you know you want to make a specific kind of widget, the Web Accessibility In
 
 1. All `Accessibility.Styled.Widget` helpers were folded into `Accessibility.Styled.Aria`, in order to make finding an ARIA helper more intuitive. Depending on your codebase, doing a find-and-replace `Widget` with `Aria` followed by running `elm-format` may suffice.
 2. Moved `Accessibility.Styled.Landmark.application` to `Accessibility.Styled.Role`
+3. `Accessibility.Styled.Aria.controls` takes a list of strings, rather than a single string
 
 
 ## Modules
