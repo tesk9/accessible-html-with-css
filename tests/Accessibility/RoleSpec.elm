@@ -57,6 +57,7 @@ spec =
             , ( slider, "slider" )
             , ( spinButton, "spinbutton" )
             , ( status, "status" )
+            , ( switch, "switch" )
             , ( tab, "tab" )
             , ( tabList, "tablist" )
             , ( tabPanel, "tabpanel" )
