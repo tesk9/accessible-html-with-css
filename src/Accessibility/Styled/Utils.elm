@@ -89,6 +89,7 @@ type Role
     | Listitem
     | Log
     | Main
+    | Mark
     | Marquee
     | Math
     | Menu
@@ -209,6 +210,9 @@ roleToString role_ =
 
         Main ->
             "main"
+
+        Mark ->
+            "mark"
 
         Marquee ->
             "marquee"

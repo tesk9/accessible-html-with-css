@@ -1,5 +1,5 @@
 module Accessibility.Styled.Role exposing
-    ( article, comboBox, definition, directory, document, img, link, math, note
+    ( article, comboBox, definition, directory, document, img, link, math, note, mark
     , alertDialog, dialog
     , columnHeader, grid, gridCell, row, rowGroup, rowHeader
     , group, radioGroup
@@ -20,7 +20,7 @@ module Accessibility.Styled.Role exposing
 
 ### General
 
-@docs article, comboBox, definition, directory, document, img, link, math, note
+@docs article, comboBox, definition, directory, document, img, link, math, note, mark
 
 
 ### Dialogs
@@ -309,6 +309,18 @@ menuItemRadio =
 note : Html.Attribute msg
 note =
     role Note
+
+
+{-| Add [`role="mark"`](https://w3c.github.io/aria/#mark) to the attributes of an element.
+
+Please note that `mark` is part of the Editor's Draft for ARIA 1.3 -- it's not an official part of a published spec yet.
+
+Also, please be aware of the `mark` HTML element. Prefer using the HTML element whenever possible.
+
+-}
+mark : Html.Attribute msg
+mark =
+    role Mark
 
 
 {-| Add [`role="option"`](https://www.w3.org/TR/wai-aria-1.1/#option) to the attributes of an element.
