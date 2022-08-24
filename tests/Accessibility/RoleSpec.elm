@@ -44,6 +44,7 @@ spec =
             , ( menuItemCheckBox, "menuitemcheckbox" )
             , ( menuItemRadio, "menuitemradio" )
             , ( note, "note" )
+            , ( mark, "mark" )
             , ( option, "option" )
             , ( presentation, "presentation" )
             , ( progressBar, "progressbar" )
