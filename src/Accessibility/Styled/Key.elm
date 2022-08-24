@@ -1,6 +1,7 @@
 module Accessibility.Styled.Key exposing
     ( tabbable
-    , onKeyDown
+    , onKeyDown, onKeyDownPreventDefault
+    , onKeyUp, onKeyUpPreventDefault
     , tab, tabBack
     , up, right, down, left
     , enter, space
@@ -17,7 +18,8 @@ module Accessibility.Styled.Key exposing
 
 ## Keyboard event listener
 
-@docs onKeyDown
+@docs onKeyDown, onKeyDownPreventDefault
+@docs onKeyUp, onKeyUpPreventDefault
 
 
 ## Decoders
@@ -43,7 +45,7 @@ module Accessibility.Styled.Key exposing
 
 import Html.Styled as Html exposing (Attribute)
 import Html.Styled.Attributes
-import Html.Styled.Events exposing (keyCode, on)
+import Html.Styled.Events exposing (keyCode, on, preventDefaultOn)
 import Json.Decode as Json
 
 
@@ -71,6 +73,44 @@ tabbable isTabbable =
 onKeyDown : List (Json.Decoder msg) -> Attribute msg
 onKeyDown decoders =
     on "keydown" (Json.oneOf decoders)
+
+
+{-| Pass a list of decoders.
+
+    onKeyDownPreventDefault [ space TheyHitEnterDoSomethingButDontScrollThePage ]
+
+-}
+onKeyDownPreventDefault : List (Json.Decoder msg) -> Attribute msg
+onKeyDownPreventDefault decoders =
+    alwaysPreventDefault "keydown" decoders
+
+
+{-| Pass a list of decoders.
+
+    onKeyUp [ enter TheyHitEnterDoSomething, left DoSomeOtherThing ]
+
+-}
+onKeyUp : List (Json.Decoder msg) -> Attribute msg
+onKeyUp decoders =
+    on "keyup" (Json.oneOf decoders)
+
+
+{-| Pass a list of decoders.
+
+    onKeyUpPreventDefault [ space TheyHitEnterDoSomethingButDontScrollThePage ]
+
+-}
+onKeyUpPreventDefault : List (Json.Decoder msg) -> Attribute msg
+onKeyUpPreventDefault decoders =
+    alwaysPreventDefault "keyup" decoders
+
+
+alwaysPreventDefault : String -> List (Json.Decoder msg) -> Attribute msg
+alwaysPreventDefault event decoders =
+    decoders
+        |> List.map (Json.map (\decoder -> ( decoder, True )))
+        |> Json.oneOf
+        |> preventDefaultOn event
 
 
 

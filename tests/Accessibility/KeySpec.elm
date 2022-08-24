@@ -2,6 +2,7 @@ module Accessibility.KeySpec exposing (spec)
 
 import Accessibility.Styled.Key exposing (..)
 import Html.Styled exposing (..)
+import Json.Decode exposing (Decoder)
 import Json.Encode as Encode
 import SpecHelpers exposing (expectAttribute)
 import Test exposing (..)
@@ -42,18 +43,46 @@ keys =
 
 expectEvent : String -> Encode.Value -> Msg -> Test
 expectEvent name keyState msg =
-    test (name ++ " produces " ++ msgToString msg) <|
-        \() ->
-            view
-                |> toUnstyled
-                |> Query.fromHtml
-                |> Event.simulate (keydown keyState)
-                |> Event.expect msg
+    describe (name ++ " produces " ++ msgToString msg)
+        [ test "onKeyDown" <|
+            \() ->
+                view onKeyDown
+                    |> toUnstyled
+                    |> Query.fromHtml
+                    |> Event.simulate (keydown keyState)
+                    |> Event.expect msg
+        , test "onKeyDownPreventDefault" <|
+            \() ->
+                view onKeyDownPreventDefault
+                    |> toUnstyled
+                    |> Query.fromHtml
+                    |> Event.simulate (keydown keyState)
+                    |> Event.expect msg
+        , test "onKeyUp" <|
+            \() ->
+                view onKeyUp
+                    |> toUnstyled
+                    |> Query.fromHtml
+                    |> Event.simulate (keyup keyState)
+                    |> Event.expect msg
+        , test "onKeyUpPreventDefault" <|
+            \() ->
+                view onKeyUpPreventDefault
+                    |> toUnstyled
+                    |> Query.fromHtml
+                    |> Event.simulate (keyup keyState)
+                    |> Event.expect msg
+        ]
 
 
 keydown : Encode.Value -> ( String, Encode.Value )
 keydown =
     Event.custom "keydown"
+
+
+keyup : Encode.Value -> ( String, Encode.Value )
+keyup =
+    Event.custom "keyup"
 
 
 withKey : Int -> Encode.Value
@@ -76,10 +105,10 @@ shiftKey pressed =
     ( "shiftKey", Encode.bool pressed )
 
 
-view : Html Msg
-view =
+view : (List (Decoder Msg) -> Attribute Msg) -> Html Msg
+view listener =
     div
-        [ onKeyDown
+        [ listener
             [ left Left
             , up Up
             , right Right
