@@ -29,11 +29,18 @@ tabbableSpec =
 
 keys : List Test
 keys =
-    [ expectEvent "left key" (withKey 37) Left
+    [ -- arrows
+      expectEvent "left key" (withKey 37) Left
     , expectEvent "up key" (withKey 38) Up
     , expectEvent "right key" (withKey 39) Right
     , expectEvent "down key" (withKey 40) Down
-    , expectEvent "enter key" (withKey 13) Enter
+    , -- arrows with shift
+      expectEvent "left key+shift" (withShiftAndKey 37) ShiftLeft
+    , expectEvent "up key+shift" (withShiftAndKey 38) ShiftUp
+    , expectEvent "right key+shift" (withShiftAndKey 39) ShiftRight
+    , expectEvent "down key+shift" (withShiftAndKey 40) ShiftDown
+    , -- other
+      expectEvent "enter key" (withKey 13) Enter
     , expectEvent "spacebar" (withKey 32) SpaceBar
     , expectEvent "tab key" (withKey 9) Tab
     , expectEvent "tab+shift" (withShiftAndKey 9) TabBack
@@ -113,6 +120,10 @@ view listener =
             , up Up
             , right Right
             , down Down
+            , shiftLeft ShiftLeft
+            , shiftUp ShiftUp
+            , shiftRight ShiftRight
+            , shiftDown ShiftDown
             , enter Enter
             , tab Tab
             , tabBack TabBack
@@ -128,6 +139,10 @@ type Msg
     | Up
     | Right
     | Down
+    | ShiftLeft
+    | ShiftUp
+    | ShiftRight
+    | ShiftDown
     | Enter
     | Tab
     | TabBack
@@ -149,6 +164,18 @@ msgToString msg =
 
         Down ->
             "Down"
+
+        ShiftLeft ->
+            "ShiftLeft"
+
+        ShiftUp ->
+            "ShiftUp"
+
+        ShiftRight ->
+            "ShiftRight"
+
+        ShiftDown ->
+            "ShiftDown"
 
         Enter ->
             "Enter"

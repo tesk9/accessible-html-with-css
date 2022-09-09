@@ -4,6 +4,7 @@ module Accessibility.Styled.Key exposing
     , onKeyUp, onKeyUpPreventDefault
     , tab, tabBack
     , up, right, down, left
+    , shiftUp, shiftRight, shiftDown, shiftLeft
     , enter, space
     , escape
     )
@@ -30,6 +31,7 @@ module Accessibility.Styled.Key exposing
 @docs tab, tabBack
 
 @docs up, right, down, left
+@docs shiftUp, shiftRight, shiftDown, shiftLeft
 
 
 ### Activation
@@ -155,44 +157,84 @@ escape msg =
 -- ARROW KEYS
 
 
-{-| Use with `onKeyDown` to succeed when user hits the left arrow key.
+{-| Use with `onKeyDown` to succeed when user hits the left arrow key without the shift key.
 
     onKeyDown [ left Left ]
 
 -}
 left : msg -> Json.Decoder msg
 left msg =
-    succeedForKeyCode 37 msg
+    succeedForKeyCodeWithoutModifier 37 shiftKey msg
 
 
-{-| Use with `onKeyDown` to succeed when user hits the up arrow key.
+{-| Use with `onKeyDown` to succeed when user hits the up arrow key without the shift key.
 
     onKeyDown [ up Up ]
 
 -}
 up : msg -> Json.Decoder msg
 up msg =
-    succeedForKeyCode 38 msg
+    succeedForKeyCodeWithoutModifier 38 shiftKey msg
 
 
-{-| Use with `onKeyDown` to succeed when user hits the right arrow key.
+{-| Use with `onKeyDown` to succeed when user hits the right arrow key without the shift key.
 
     onKeyDown [ right Right ]
 
 -}
 right : msg -> Json.Decoder msg
 right msg =
-    succeedForKeyCode 39 msg
+    succeedForKeyCodeWithoutModifier 39 shiftKey msg
 
 
-{-| Use with `onKeyDown` to succeed when user hits the down arrow key.
+{-| Use with `onKeyDown` to succeed when user hits the down arrow key without the shift key.
 
     onKeyDown [ down Down ]
 
 -}
 down : msg -> Json.Decoder msg
 down msg =
-    succeedForKeyCode 40 msg
+    succeedForKeyCodeWithoutModifier 40 shiftKey msg
+
+
+{-| Succeed when user hits the left arrow key with the shift key.
+
+    onKeyDown [ shiftLeft Left ]
+
+-}
+shiftLeft : msg -> Json.Decoder msg
+shiftLeft msg =
+    succeedForKeyCodeWithModifier 37 shiftKey msg
+
+
+{-| Succeed when user hits the up arrow key with the shift key.
+
+    onKeyDown [ shiftUp Up ]
+
+-}
+shiftUp : msg -> Json.Decoder msg
+shiftUp msg =
+    succeedForKeyCodeWithModifier 38 shiftKey msg
+
+
+{-| Succeed when user hits the right arrow key with the shift key.
+
+    onKeyDown [ shiftRight Right ]
+
+-}
+shiftRight : msg -> Json.Decoder msg
+shiftRight msg =
+    succeedForKeyCodeWithModifier 39 shiftKey msg
+
+
+{-| Succeed when user hits the down arrow key with the shift key.
+
+    onKeyDown [ shiftDown Down ]
+
+-}
+shiftDown : msg -> Json.Decoder msg
+shiftDown msg =
+    succeedForKeyCodeWithModifier 40 shiftKey msg
 
 
 
