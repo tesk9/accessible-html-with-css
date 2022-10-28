@@ -45,6 +45,8 @@ If you know you want to make a specific kind of widget, the Web Accessibility In
 
 This section extends the html library to include `tab*` elements, `radio`, `inputText`, `checkbox`, and more. It also shadows the `elm/html` library to encourage limiting interactive behavior to html5 interactable elements.
 
+This module may be removed in a future version of this library.
+
 ### Accessibility.Styled.Live
 
 Describe which sections of the page are changing over time, and how aggressively assistive technologies should notify the user about those changes.
