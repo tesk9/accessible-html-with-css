@@ -47,7 +47,7 @@ module Accessibility.Styled.Key exposing
 
 import Html.Styled as Html exposing (Attribute)
 import Html.Styled.Attributes
-import Html.Styled.Events exposing (keyCode, on, preventDefaultOn)
+import Html.Styled.Events as Events exposing (on, preventDefaultOn)
 import Json.Decode as Json
 
 
@@ -267,7 +267,7 @@ tabBack msg =
 
 succeedForKeyCode : Int -> msg -> Json.Decoder msg
 succeedForKeyCode key msg =
-    Json.andThen (forKeyCode key msg) keyCode
+    Json.andThen (forKeyCode key msg) Events.keyCode
 
 
 forKeyCode : Int -> msg -> Int -> Json.Decoder msg
