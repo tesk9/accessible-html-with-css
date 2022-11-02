@@ -114,7 +114,7 @@ shiftKey pressed =
     ( "shiftKey", Encode.bool pressed )
 
 
-view : (List (Decoder String) -> Attribute String) -> Html String
+view : (List (Event String) -> Attribute String) -> Html String
 view listener =
     div
         [ listener
