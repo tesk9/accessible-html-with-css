@@ -4,6 +4,7 @@ module Accessibility.Styled.Key exposing
     , onKeyUp, onKeyUpPreventDefault
     , tab, tabBack
     , up, right, down, left
+    , shift
     , shiftUp, shiftRight, shiftDown, shiftLeft
     , enter, space
     , escape
@@ -31,6 +32,7 @@ module Accessibility.Styled.Key exposing
 @docs tab, tabBack
 
 @docs up, right, down, left
+@docs shift
 @docs shiftUp, shiftRight, shiftDown, shiftLeft
 
 
@@ -195,6 +197,16 @@ right msg =
 down : msg -> Json.Decoder msg
 down msg =
     succeedForKeyCodeWithoutModifier 40 shiftKey msg
+
+
+{-| Succeed when user hits the shift key by itself.
+
+    onKeyDown [ shift Shift ]
+
+-}
+shift : msg -> Json.Decoder msg
+shift msg =
+    succeedForKeyCodeWithModifier 16 shiftKey msg
 
 
 {-| Succeed when user hits the left arrow key with the shift key.
