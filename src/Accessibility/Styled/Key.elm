@@ -9,6 +9,7 @@ module Accessibility.Styled.Key exposing
     , shiftUp, shiftRight, shiftDown, shiftLeft
     , enter, space
     , escape
+    , customOneOf
     )
 
 {-|
@@ -50,6 +51,11 @@ A future version of this library may return to using generic decoders.
 ### Deactivation
 
 @docs escape
+
+
+## Advanced
+
+@docs customOneOf
 
 -}
 
