@@ -1,6 +1,5 @@
 module Accessibility.Styled.Live exposing
     ( atomic, busy, polite, assertive
-    , livePolite, liveAssertive
     , relevantAdditions, relevantAdditionsText, relevantAll, relevantRemovals, relevantText
     )
 
@@ -12,7 +11,6 @@ module Accessibility.Styled.Live exposing
 Learn more about how to use live regions [here](https://www.w3.org/TR/wai-aria-practices-1.1/#liveprops).
 
 @docs atomic, busy, polite, assertive
-@docs livePolite, liveAssertive
 
 
 # Properties on Live Attributes
@@ -55,13 +53,6 @@ polite =
     aria "live" "polite"
 
 
-{-| Identical to `polite`. Included for backwards-compatibility. A future version of the library will likely remove this helper.
--}
-livePolite : Html.Attribute msg
-livePolite =
-    polite
-
-
 {-| Supported by all elements.
 
 Updates to the region will cause the assistive technologies to immediately interrupt the user with the big news.
@@ -70,13 +61,6 @@ Updates to the region will cause the assistive technologies to immediately inter
 assertive : Html.Attribute msg
 assertive =
     aria "live" "assertive"
-
-
-{-| Identical to `assertive`. Included for backwards-compatibility. A future version of the library will likely remove this helper.
--}
-liveAssertive : Html.Attribute msg
-liveAssertive =
-    assertive
 
 
 {-| Supported by live regions.

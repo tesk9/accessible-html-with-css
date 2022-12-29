@@ -3,7 +3,7 @@
     "name": "tesk9/accessible-html-with-css",
     "summary": "Drop-in replacement for tesk9/accessible-html using Html.Styled",
     "license": "BSD-3-Clause",
-    "version": "4.1.0",
+    "version": "5.0.0",
     "exposed-modules": [
         "Accessibility.Styled",
         "Accessibility.Styled.Aria",
@@ -18,7 +18,7 @@
         "elm/core": "1.0.0 <= v < 2.0.0",
         "elm/html": "1.0.0 <= v < 2.0.0",
         "elm/json": "1.0.0 <= v < 2.0.0",
-        "rtfeldman/elm-css": "17.0.1 <= v < 18.0.0"
+        "rtfeldman/elm-css": "18.0.0 <= v < 19.0.0"
     },
     "test-dependencies": {
         "elm-explorations/test": "2.0.0 <= v < 3.0.0"
