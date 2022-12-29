@@ -14,12 +14,8 @@ spec =
             expectAriaBoolAttribute busy "busy"
         , test "polite" <|
             expectAria ( \() -> polite, () ) ( "live", "polite" )
-        , test "livePolite" <|
-            expectAria ( \() -> livePolite, () ) ( "live", "polite" )
         , test "assertive" <|
             expectAria ( \() -> assertive, () ) ( "live", "assertive" )
-        , test "liveAssertive" <|
-            expectAria ( \() -> liveAssertive, () ) ( "live", "assertive" )
         , test "relevantAdditions" <|
             expectAria ( \() -> relevantAdditions, () ) ( "relevant", "additions" )
         , test "relevantAdditionsText" <|
