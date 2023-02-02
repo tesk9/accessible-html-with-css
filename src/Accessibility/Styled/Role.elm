@@ -1,5 +1,6 @@
 module Accessibility.Styled.Role exposing
-    ( article, comboBox, definition, directory, document, img, link, math, note, mark
+    ( article, comboBox, definition, directory, document, img, link, math, note
+    , mark, suggestion
     , alertDialog, dialog
     , columnHeader, grid, gridCell, row, rowGroup, rowHeader
     , group, radioGroup
@@ -20,7 +21,12 @@ module Accessibility.Styled.Role exposing
 
 ### General
 
-@docs article, comboBox, definition, directory, document, img, link, math, note, mark
+@docs article, comboBox, definition, directory, document, img, link, math, note
+
+
+### Annotation
+
+@docs mark, suggestion
 
 
 ### Dialogs
@@ -321,6 +327,16 @@ Also, please be aware of the `mark` HTML element. Prefer using the HTML element 
 mark : Html.Attribute msg
 mark =
     role Mark
+
+
+{-| Add [`role="suggestion"`](https://w3c.github.io/aria/#suggestion) to the attributes of an element.
+
+Please note that `suggestion` is part of the Editor's Draft for ARIA 1.3 -- it's not an official part of a published spec yet.
+
+-}
+suggestion : Html.Attribute msg
+suggestion =
+    role Suggestion
 
 
 {-| Add [`role="option"`](https://www.w3.org/TR/wai-aria-1.1/#option) to the attributes of an element.

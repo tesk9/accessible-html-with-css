@@ -90,6 +90,7 @@ type Role
     | Log
     | Main
     | Mark
+    | Suggestion
     | Marquee
     | Math
     | Menu
@@ -213,6 +214,9 @@ roleToString role_ =
 
         Mark ->
             "mark"
+
+        Suggestion ->
+            "suggestion"
 
         Marquee ->
             "marquee"
