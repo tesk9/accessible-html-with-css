@@ -431,6 +431,8 @@ describedBy =
 Refer to a single extended description section--maybe a couple of paragraphs
 and a chart. Pass in the HTML id of an element with details about the current element to create an [aria-details association](https://www.w3.org/TR/wai-aria-1.1/#aria-details).
 
+The Editor's Draft for ARIA 1.3 allows multiple idrefs instead of just 1, but the current published ARIA spec only supports a singular idref.
+
 -}
 details : String -> Html.Attribute msg
 details =
