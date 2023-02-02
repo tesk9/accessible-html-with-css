@@ -179,7 +179,7 @@ dialog =
 
 {-| In ARIA 1.1, [`role="directory"`](https://www.w3.org/TR/wai-aria-1.1/#directory) described a list of references like a static table of contents.
 
-ARIA 1.2 deprecates this role, and [recommends using a semantic list instead](https://www.w3.org/TR/wai-aria-1.2/#directory).
+ARIA 1.2 (which is still a Candidate Draft and not the official version) deprecates this role, and [recommends using a semantic list instead](https://www.w3.org/TR/wai-aria-1.2/#directory).
 
 -}
 directory : Html.Attribute msg
@@ -286,6 +286,8 @@ math =
 
 Prefer using the semantic HTML element `code` instead of this role when possible.
 
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 code : Html.Attribute msg
 code =
@@ -295,6 +297,8 @@ code =
 {-| Add [`role="time"`](https://www.w3.org/TR/wai-aria-1.2/#time) to the attributes of an element.
 
 Prefer using the semantic HTML element `time` instead of this role when possible.
+
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
 
 -}
 time : Html.Attribute msg
@@ -382,6 +386,8 @@ Use this role on content that is being suggested for addition or for marking dif
 
 Prefer using the semantic HTML element `ins` instead of this role when possible.
 
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 insertion : Html.Attribute msg
 insertion =
@@ -394,6 +400,8 @@ Use this role on content that is being suggested for addition or for marking dif
 
 Prefer using the semantic HTML element `del` instead of this role when possible.
 
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 deletion : Html.Attribute msg
 deletion =
@@ -403,6 +411,8 @@ deletion =
 {-| Add [`role="subscript"`](https://www.w3.org/TR/wai-aria-1.2/#subscript) to the attributes of an element.
 
 Prefer using the semantic HTML element `sub` instead of this role when possible.
+
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
 
 -}
 subscript : Html.Attribute msg
@@ -414,6 +424,8 @@ subscript =
 
 Prefer using the semantic HTML element `sub` instead of this role when possible.
 
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 superscript : Html.Attribute msg
 superscript =
@@ -424,6 +436,8 @@ superscript =
 
 Prefer using the semantic HTML element `strong` instead of this role when possible.
 
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 strong : Html.Attribute msg
 strong =
@@ -433,6 +447,8 @@ strong =
 {-| Add [`role="emphasis"`](https://www.w3.org/TR/wai-aria-1.2/#emphasis) to the attributes of an element.
 
 Prefer using the semantic HTML element `em` instead of this role when possible.
+
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
 
 -}
 emphasis : Html.Attribute msg
@@ -462,6 +478,9 @@ progressBar =
 
 
 {-| Add [`role="meter"`](https://www.w3.org/TR/wai-aria-1.2/#meter) to the attributes of an element.
+
+Please note that this ARIA property is part of the Candidate Recommendation Draft for ARIA 1.2 -- it's not an official part of a published spec yet.
+
 -}
 meter : Html.Attribute msg
 meter =
