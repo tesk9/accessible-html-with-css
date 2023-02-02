@@ -95,7 +95,7 @@ module Accessibility.Styled.Role exposing
 
 -}
 
-import Accessibility.Styled.Utils exposing (Role(..), role)
+import Accessibility.Styled.Utils exposing (role)
 import Html.Styled as Html
 import Html.Styled.Attributes
 
@@ -114,98 +114,98 @@ custom =
 -}
 alert : Html.Attribute msg
 alert =
-    role Alert
+    role "alert"
 
 
 {-| Add [`role="alertdialog"`](https://www.w3.org/TR/wai-aria-1.1/#alertdialog) to the attributes of an element.
 -}
 alertDialog : Html.Attribute msg
 alertDialog =
-    role Alertdialog
+    role "alertdialog"
 
 
 {-| Add [`role="article"`](https://www.w3.org/TR/wai-aria-1.1/#article) to the attributes of an element.
 -}
 article : Html.Attribute msg
 article =
-    role Article
+    role "article"
 
 
 {-| Add [`role="button"`](https://www.w3.org/TR/wai-aria-1.1/#button) to the attributes of an element.
 -}
 button : Html.Attribute msg
 button =
-    role Button
+    role "button"
 
 
 {-| Add [`role="checkbox"`](https://www.w3.org/TR/wai-aria-1.1/#checkbox) to the attributes of an element.
 -}
 checkBox : Html.Attribute msg
 checkBox =
-    role Checkbox
+    role "checkbox"
 
 
 {-| Add [`role="columnheader"`](https://www.w3.org/TR/wai-aria-1.1/#columnheader) to the attributes of an element.
 -}
 columnHeader : Html.Attribute msg
 columnHeader =
-    role Columnheader
+    role "columnheader"
 
 
 {-| Add [`role="combobox"`](https://www.w3.org/TR/wai-aria-1.1/#combobox) to the attributes of an element.
 -}
 comboBox : Html.Attribute msg
 comboBox =
-    role Combobox
+    role "combobox"
 
 
 {-| Add [`role="definition"`](https://www.w3.org/TR/wai-aria-1.1/#definition) to the attributes of an element.
 -}
 definition : Html.Attribute msg
 definition =
-    role Definition
+    role "definition"
 
 
 {-| Add [`role="dialog"`](https://www.w3.org/TR/wai-aria-1.1/#dialog) to the attributes of an element.
 -}
 dialog : Html.Attribute msg
 dialog =
-    role Dialog
+    role "dialog"
 
 
 {-| Add [`role="directory"`](https://www.w3.org/TR/wai-aria-1.1/#directory) to the attributes of an element.
 -}
 directory : Html.Attribute msg
 directory =
-    role Directory
+    role "directory"
 
 
 {-| Add [`role="document"`](https://www.w3.org/TR/wai-aria-1.1/#document) to the attributes of an element.
 -}
 document : Html.Attribute msg
 document =
-    role Document
+    role "document"
 
 
 {-| Add [`role="grid"`](https://www.w3.org/TR/wai-aria-1.1/#grid) to the attributes of an element.
 -}
 grid : Html.Attribute msg
 grid =
-    role Grid
+    role "grid"
 
 
 {-| Add [`role="gridcell"`](https://www.w3.org/TR/wai-aria-1.1/#gridcell) to the attributes of an element.
 -}
 gridCell : Html.Attribute msg
 gridCell =
-    role Gridcell
+    role "gridcell"
 
 
 {-| Define a set of controls. (for a group of radio inputs, see radioGroup).
 -}
 group : Html.Attribute msg
 group =
-    role Group
+    role "group"
 
 
 {-| Prefer using `h1`, `h2`, `h3`, `h4`, `h5`, and `h6`.
@@ -216,105 +216,105 @@ Really this attribute should only be necessary if you need an `h7`-type heading.
 -}
 heading : Html.Attribute msg
 heading =
-    role Heading
+    role "heading"
 
 
 {-| Add [`role="img"`](https://www.w3.org/TR/wai-aria-1.1/#img) to the attributes of an element.
 -}
 img : Html.Attribute msg
 img =
-    role Img
+    role "img"
 
 
 {-| Add [`role="link"`](https://www.w3.org/TR/wai-aria-1.1/#link) to the attributes of an element.
 -}
 link : Html.Attribute msg
 link =
-    role Link
+    role "link"
 
 
 {-| Add [`role="list"`](https://www.w3.org/TR/wai-aria-1.1/#list) to the attributes of an element.
 -}
 list : Html.Attribute msg
 list =
-    role List
+    role "list"
 
 
 {-| Add [`role="listbox"`](https://www.w3.org/TR/wai-aria-1.1/#listbox) to the attributes of an element.
 -}
 listBox : Html.Attribute msg
 listBox =
-    role Listbox
+    role "listbox"
 
 
 {-| Add [`role="listitem"`](https://www.w3.org/TR/wai-aria-1.1/#listitem) to the attributes of an element.
 -}
 listItem : Html.Attribute msg
 listItem =
-    role Listitem
+    role "listitem"
 
 
 {-| Add [`role="log"`](https://www.w3.org/TR/wai-aria-1.1/#log) to the attributes of an element.
 -}
 log : Html.Attribute msg
 log =
-    role Log
+    role "log"
 
 
 {-| Add [`role="marquee"`](https://www.w3.org/TR/wai-aria-1.1/#marquee) to the attributes of an element.
 -}
 marquee : Html.Attribute msg
 marquee =
-    role Marquee
+    role "marquee"
 
 
 {-| Add [`role="math"`](https://www.w3.org/TR/wai-aria-1.1/#math) to the attributes of an element.
 -}
 math : Html.Attribute msg
 math =
-    role Math
+    role "math"
 
 
 {-| Add [`role="menu"`](https://www.w3.org/TR/wai-aria-1.1/#menu) to the attributes of an element.
 -}
 menu : Html.Attribute msg
 menu =
-    role Menu
+    role "menu"
 
 
 {-| Add [`role="menubar"`](https://www.w3.org/TR/wai-aria-1.1/#menubar) to the attributes of an element.
 -}
 menuBar : Html.Attribute msg
 menuBar =
-    role Menubar
+    role "menubar"
 
 
 {-| Add [`role="menuitem"`](https://www.w3.org/TR/wai-aria-1.1/#menuitem) to the attributes of an element.
 -}
 menuItem : Html.Attribute msg
 menuItem =
-    role Menuitem
+    role "menuitem"
 
 
 {-| Add [`role="menuitemcheckbox"`](https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox) to the attributes of an element.
 -}
 menuItemCheckBox : Html.Attribute msg
 menuItemCheckBox =
-    role Menuitemcheckbox
+    role "menuitemcheckbox"
 
 
 {-| Add [`role="menuitemradio"`](https://www.w3.org/TR/wai-aria-1.1/#menuitemradio) to the attributes of an element.
 -}
 menuItemRadio : Html.Attribute msg
 menuItemRadio =
-    role Menuitemradio
+    role "menuitemradio"
 
 
 {-| Add [`role="note"`](https://www.w3.org/TR/wai-aria-1.1/#note) to the attributes of an element.
 -}
 note : Html.Attribute msg
 note =
-    role Note
+    role "note"
 
 
 {-| Add [`role="mark"`](https://w3c.github.io/aria/#mark) to the attributes of an element.
@@ -326,7 +326,7 @@ Also, please be aware of the `mark` HTML element. Prefer using the HTML element 
 -}
 mark : Html.Attribute msg
 mark =
-    role Mark
+    role "mark"
 
 
 {-| Add [`role="suggestion"`](https://w3c.github.io/aria/#suggestion) to the attributes of an element.
@@ -336,7 +336,7 @@ Please note that `suggestion` is part of the Editor's Draft for ARIA 1.3 -- it's
 -}
 suggestion : Html.Attribute msg
 suggestion =
-    role Suggestion
+    role "suggestion"
 
 
 {-| Add [`role="comment"`](https://w3c.github.io/aria/#comment) to the attributes of an element.
@@ -346,175 +346,175 @@ Please note that `comment` is part of the Editor's Draft for ARIA 1.3 -- it's no
 -}
 comment : Html.Attribute msg
 comment =
-    role Comment
+    role "comment"
 
 
 {-| Add [`role="option"`](https://www.w3.org/TR/wai-aria-1.1/#option) to the attributes of an element.
 -}
 option : Html.Attribute msg
 option =
-    role Option
+    role "option"
 
 
 {-| Sets role presentation.
 -}
 presentation : Html.Attribute msg
 presentation =
-    role Presentation
+    role "presentation"
 
 
 {-| Add [`role="progressbar"`](https://www.w3.org/TR/wai-aria-1.1/#progressbar) to the attributes of an element.
 -}
 progressBar : Html.Attribute msg
 progressBar =
-    role Progressbar
+    role "progressbar"
 
 
 {-| Add [`role="radio"`](https://www.w3.org/TR/wai-aria-1.1/#radio) to the attributes of an element.
 -}
 radio : Html.Attribute msg
 radio =
-    role Radio
+    role "radio"
 
 
 {-| Define a set of radio-controls.
 -}
 radioGroup : Html.Attribute msg
 radioGroup =
-    role Radiogroup
+    role "radiogroup"
 
 
 {-| Add [`role="row"`](https://www.w3.org/TR/wai-aria-1.1/#row) to the attributes of an element.
 -}
 row : Html.Attribute msg
 row =
-    role Row
+    role "row"
 
 
 {-| Add [`role="rowgroup"`](https://www.w3.org/TR/wai-aria-1.1/#rowgroup) to the attributes of an element.
 -}
 rowGroup : Html.Attribute msg
 rowGroup =
-    role Rowgroup
+    role "rowgroup"
 
 
 {-| Add [`role="rowheader"`](https://www.w3.org/TR/wai-aria-1.1/#rowheader) to the attributes of an element.
 -}
 rowHeader : Html.Attribute msg
 rowHeader =
-    role Rowheader
+    role "rowheader"
 
 
 {-| Add [`role="scrollbar"`](https://www.w3.org/TR/wai-aria-1.1/#scrollbar) to the attributes of an element.
 -}
 scrollBar : Html.Attribute msg
 scrollBar =
-    role Scrollbar
+    role "scrollbar"
 
 
 {-| Add [`role="separator"`](https://www.w3.org/TR/wai-aria-1.1/#separator) to the attributes of an element.
 -}
 separator : Html.Attribute msg
 separator =
-    role Separator
+    role "separator"
 
 
 {-| Add [`role="slider"`](https://www.w3.org/TR/wai-aria-1.1/#slider) to the attributes of an element.
 -}
 slider : Html.Attribute msg
 slider =
-    role Slider
+    role "slider"
 
 
 {-| Add [`role="spinbutton"`](https://www.w3.org/TR/wai-aria-1.1/#spinbutton) to the attributes of an element.
 -}
 spinButton : Html.Attribute msg
 spinButton =
-    role Spinbutton
+    role "spinbutton"
 
 
 {-| Add [`role="status"`](https://www.w3.org/TR/wai-aria-1.1/#status) to the attributes of an element.
 -}
 status : Html.Attribute msg
 status =
-    role Status
+    role "status"
 
 
 {-| Add [`role="switch"`](https://www.w3.org/TR/wai-aria-1.1/#switch) to the attributes of an element.
 -}
 switch : Html.Attribute msg
 switch =
-    role Switch
+    role "switch"
 
 
 {-| Add [`role="tab"`](https://www.w3.org/TR/wai-aria-1.1/#tab) to the attributes of an element.
 -}
 tab : Html.Attribute msg
 tab =
-    role Tab
+    role "tab"
 
 
 {-| Add [`role="tablist"`](https://www.w3.org/TR/wai-aria-1.1/#tablist) to the attributes of an element.
 -}
 tabList : Html.Attribute msg
 tabList =
-    role Tablist
+    role "tablist"
 
 
 {-| Add [`role="tabpanel"`](https://www.w3.org/TR/wai-aria-1.1/#tabpanel) to the attributes of an element.
 -}
 tabPanel : Html.Attribute msg
 tabPanel =
-    role Tabpanel
+    role "tabpanel"
 
 
 {-| Add [`role="textbox"`](https://www.w3.org/TR/wai-aria-1.1/#textbox) to the attributes of an element.
 -}
 textBox : Html.Attribute msg
 textBox =
-    role Textbox
+    role "textbox"
 
 
 {-| Add [`role="timer"`](https://www.w3.org/TR/wai-aria-1.1/#timer) to the attributes of an element.
 -}
 timer : Html.Attribute msg
 timer =
-    role Timer
+    role "timer"
 
 
 {-| Add [`role="toolbar"`](https://www.w3.org/TR/wai-aria-1.1/#toolbar) to the attributes of an element.
 -}
 toolBar : Html.Attribute msg
 toolBar =
-    role Toolbar
+    role "toolbar"
 
 
 {-| Add [`role="tooltip"`](https://www.w3.org/TR/wai-aria-1.1/#tooltip) to the attributes of an element.
 -}
 toolTip : Html.Attribute msg
 toolTip =
-    role Tooltip
+    role "tooltip"
 
 
 {-| Add [`role="tree"`](https://www.w3.org/TR/wai-aria-1.1/#tree) to the attributes of an element.
 -}
 tree : Html.Attribute msg
 tree =
-    role Tree
+    role "tree"
 
 
 {-| Add [`role="treegrid"`](https://www.w3.org/TR/wai-aria-1.1/#treegrid) to the attributes of an element.
 -}
 treeGrid : Html.Attribute msg
 treeGrid =
-    role Treegrid
+    role "treegrid"
 
 
 {-| Add [`role="treeitem"`](https://www.w3.org/TR/wai-aria-1.1/#treeitem) to the attributes of an element.
 -}
 treeItem : Html.Attribute msg
 treeItem =
-    role Treeitem
+    role "treeitem"
 
 
 {-| Creates a [`role="application"`](https://www.w3.org/TR/wai-aria-1.1/#application) attribute.
@@ -524,4 +524,4 @@ treeItem =
 -}
 application : Html.Attribute msg
 application =
-    role Application
+    role "application"
