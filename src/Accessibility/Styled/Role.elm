@@ -1,6 +1,6 @@
 module Accessibility.Styled.Role exposing
     ( article, comboBox, definition, directory, document, img, link, math, note
-    , mark, suggestion
+    , mark, suggestion, comment
     , alertDialog, dialog
     , columnHeader, grid, gridCell, row, rowGroup, rowHeader
     , group, radioGroup
@@ -26,7 +26,7 @@ module Accessibility.Styled.Role exposing
 
 ### Annotation
 
-@docs mark, suggestion
+@docs mark, suggestion, comment
 
 
 ### Dialogs
@@ -337,6 +337,16 @@ Please note that `suggestion` is part of the Editor's Draft for ARIA 1.3 -- it's
 suggestion : Html.Attribute msg
 suggestion =
     role Suggestion
+
+
+{-| Add [`role="comment"`](https://w3c.github.io/aria/#comment) to the attributes of an element.
+
+Please note that `comment` is part of the Editor's Draft for ARIA 1.3 -- it's not an official part of a published spec yet.
+
+-}
+comment : Html.Attribute msg
+comment =
+    role Comment
 
 
 {-| Add [`role="option"`](https://www.w3.org/TR/wai-aria-1.1/#option) to the attributes of an element.

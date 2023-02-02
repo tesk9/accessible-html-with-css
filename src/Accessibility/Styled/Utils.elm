@@ -71,6 +71,7 @@ type Role
     | Checkbox
     | Columnheader
     | Combobox
+    | Comment
     | Complementary
     | Contentinfo
     | Definition
@@ -217,6 +218,9 @@ roleToString role_ =
 
         Suggestion ->
             "suggestion"
+
+        Comment ->
+            "comment"
 
         Marquee ->
             "marquee"

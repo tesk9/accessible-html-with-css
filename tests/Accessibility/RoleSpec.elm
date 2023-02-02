@@ -22,6 +22,7 @@ spec =
             , ( checkBox, "checkbox" )
             , ( columnHeader, "columnheader" )
             , ( comboBox, "combobox" )
+            , ( comment, "comment" )
             , ( definition, "definition" )
             , ( dialog, "dialog" )
             , ( directory, "directory" )
