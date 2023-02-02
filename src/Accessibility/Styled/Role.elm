@@ -1,6 +1,8 @@
 module Accessibility.Styled.Role exposing
-    ( article, comboBox, definition, directory, document, img, link, math, note
-    , mark, suggestion, comment
+    ( article, comboBox, definition, directory, document, img, link, math, note, code, time
+    , mark, suggestion, comment, insertion, deletion
+    , emphasis, strong
+    , subscript, superscript
     , alertDialog, dialog
     , columnHeader, grid, gridCell, row, rowGroup, rowHeader
     , group, radioGroup
@@ -9,7 +11,7 @@ module Accessibility.Styled.Role exposing
     , list, listBox, listItem
     , alert, log, marquee, timer, status
     , menu, menuBar, menuItem, menuItemCheckBox, menuItemRadio
-    , progressBar, scrollBar, separator, slider, spinButton
+    , meter, progressBar, scrollBar, separator, slider, spinButton
     , tab, tabList, tabPanel
     , toolBar, toolTip
     , tree, treeGrid, treeItem
@@ -21,12 +23,14 @@ module Accessibility.Styled.Role exposing
 
 ### General
 
-@docs article, comboBox, definition, directory, document, img, link, math, note
+@docs article, comboBox, definition, directory, document, img, link, math, note, code, time
 
 
 ### Annotation
 
-@docs mark, suggestion, comment
+@docs mark, suggestion, comment, insertion, deletion
+@docs emphasis, strong
+@docs subscript, superscript
 
 
 ### Dialogs
@@ -71,7 +75,7 @@ module Accessibility.Styled.Role exposing
 
 ### Range-y widgets
 
-@docs progressBar, scrollBar, separator, slider, spinButton
+@docs meter, progressBar, scrollBar, separator, slider, spinButton
 
 
 ### Tabs
@@ -173,7 +177,10 @@ dialog =
     role "dialog"
 
 
-{-| Add [`role="directory"`](https://www.w3.org/TR/wai-aria-1.1/#directory) to the attributes of an element.
+{-| In ARIA 1.1, [`role="directory"`](https://www.w3.org/TR/wai-aria-1.1/#directory) described a list of references like a static table of contents.
+
+ARIA 1.2 deprecates this role, and [recommends using a semantic list instead](https://www.w3.org/TR/wai-aria-1.2/#directory).
+
 -}
 directory : Html.Attribute msg
 directory =
@@ -275,6 +282,26 @@ math =
     role "math"
 
 
+{-| Add [`role="code"`](https://www.w3.org/TR/wai-aria-1.2/#code) to the attributes of an element.
+
+Prefer using the semantic HTML element `code` instead of this role when possible.
+
+-}
+code : Html.Attribute msg
+code =
+    role "code"
+
+
+{-| Add [`role="time"`](https://www.w3.org/TR/wai-aria-1.2/#time) to the attributes of an element.
+
+Prefer using the semantic HTML element `time` instead of this role when possible.
+
+-}
+time : Html.Attribute msg
+time =
+    role "time"
+
+
 {-| Add [`role="menu"`](https://www.w3.org/TR/wai-aria-1.1/#menu) to the attributes of an element.
 -}
 menu : Html.Attribute msg
@@ -349,6 +376,70 @@ comment =
     role "comment"
 
 
+{-| Add [`role="insertion"`](https://www.w3.org/TR/wai-aria-1.2/#insertion) to the attributes of an element.
+
+Use this role on content that is being suggested for addition or for marking differences between versions of content.
+
+Prefer using the semantic HTML element `ins` instead of this role when possible.
+
+-}
+insertion : Html.Attribute msg
+insertion =
+    role "insertion"
+
+
+{-| Add [`role="deletion"`](https://www.w3.org/TR/wai-aria-1.2/#deletion) to the attributes of an element.
+
+Use this role on content that is being suggested for addition or for marking differences between versions of content.
+
+Prefer using the semantic HTML element `del` instead of this role when possible.
+
+-}
+deletion : Html.Attribute msg
+deletion =
+    role "deletion"
+
+
+{-| Add [`role="subscript"`](https://www.w3.org/TR/wai-aria-1.2/#subscript) to the attributes of an element.
+
+Prefer using the semantic HTML element `sub` instead of this role when possible.
+
+-}
+subscript : Html.Attribute msg
+subscript =
+    role "subscript"
+
+
+{-| Add [`role="superscript"`](https://www.w3.org/TR/wai-aria-1.2/#superscript) to the attributes of an element.
+
+Prefer using the semantic HTML element `sub` instead of this role when possible.
+
+-}
+superscript : Html.Attribute msg
+superscript =
+    role "superscript"
+
+
+{-| Add [`role="strong"`](https://www.w3.org/TR/wai-aria-1.2/#strong) to the attributes of an element.
+
+Prefer using the semantic HTML element `strong` instead of this role when possible.
+
+-}
+strong : Html.Attribute msg
+strong =
+    role "strong"
+
+
+{-| Add [`role="emphasis"`](https://www.w3.org/TR/wai-aria-1.2/#emphasis) to the attributes of an element.
+
+Prefer using the semantic HTML element `em` instead of this role when possible.
+
+-}
+emphasis : Html.Attribute msg
+emphasis =
+    role "emphasis"
+
+
 {-| Add [`role="option"`](https://www.w3.org/TR/wai-aria-1.1/#option) to the attributes of an element.
 -}
 option : Html.Attribute msg
@@ -368,6 +459,13 @@ presentation =
 progressBar : Html.Attribute msg
 progressBar =
     role "progressbar"
+
+
+{-| Add [`role="meter"`](https://www.w3.org/TR/wai-aria-1.2/#meter) to the attributes of an element.
+-}
+meter : Html.Attribute msg
+meter =
+    role "meter"
 
 
 {-| Add [`role="radio"`](https://www.w3.org/TR/wai-aria-1.1/#radio) to the attributes of an element.
