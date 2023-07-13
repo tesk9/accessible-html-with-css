@@ -1,5 +1,6 @@
 module Accessibility.Styled.Live exposing
     ( atomic, busy, polite, assertive
+    , off
     , relevantAdditions, relevantAdditionsText, relevantAll, relevantRemovals, relevantText
     )
 
@@ -11,6 +12,7 @@ module Accessibility.Styled.Live exposing
 Learn more about how to use live regions [here](https://www.w3.org/TR/wai-aria-practices-1.1/#liveprops).
 
 @docs atomic, busy, polite, assertive
+@docs off
 
 
 # Properties on Live Attributes
@@ -61,6 +63,13 @@ Updates to the region will cause the assistive technologies to immediately inter
 assertive : Html.Attribute msg
 assertive =
     aria "live" "assertive"
+
+
+{-| Use Live.off to suppress updates that otherwise would be announced to the user due to the element's role.
+-}
+off : Html.Attribute msg
+off =
+    aria "live" "off"
 
 
 {-| Supported by live regions.
