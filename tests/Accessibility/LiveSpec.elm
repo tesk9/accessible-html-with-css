@@ -16,6 +16,8 @@ spec =
             expectAria ( \() -> polite, () ) ( "live", "polite" )
         , test "assertive" <|
             expectAria ( \() -> assertive, () ) ( "live", "assertive" )
+        , test "off" <|
+            expectAria ( \() -> off, () ) ( "live", "off" )
         , test "relevantAdditions" <|
             expectAria ( \() -> relevantAdditions, () ) ( "relevant", "additions" )
         , test "relevantAdditionsText" <|
